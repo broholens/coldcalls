@@ -28,11 +28,15 @@ class SMSBooming:
             self.request(platform['url'])
             name, password = platform.get('name'), platform.get('password')
             phone, verify = platform['phone'], platform['register']
+            password_confirm = platform.get('password_confirm')
+            _password = choice(self.passwords)
             try:
                 if name is not None:
                     self.driver.find_element(name[0], name[1]).send_keys(choice(self.names))
                 if password is not None:
-                    self.driver.find_element(password[0], password[1]).send_keys(choice(self.passwords))
+                    self.driver.find_element(password[0], password[1]).send_keys(_password)
+                if password_confirm is not None:
+                    self.driver.find_element(password_confirm[0], password_confirm[1]).send_keys(_password)
                 time.sleep(1)
                 self.driver.find_element(phone[0], phone[1]).send_keys(self.phone[:3])
                 time.sleep(1)
@@ -100,7 +104,52 @@ platforms = [
         'phone': (By.ID, 'strMobile'),
         'register': (By.XPATH, '//input[@id="vcode"]')
     },
-    # http://www.wanke001.com/Register/Register.aspx
+    {
+        'url': 'http://wuhan.bdcgw.cn/pctg/2345/2961/?A',
+        'phone': (By.XPATH, '//input[@name="tgMobile1"]'),
+        'register': (By.ID, 'btnTg1')
+    },
+    {
+        'url': 'http://www.wanke001.com/Register/Register.aspx',
+        'phone': (By.ID, 'txtMobile'),
+        'register': (By.ID, 'sendCode')
+    },
+    {
+        'url': 'http://passport.cnmo.com/register/',
+        'phone': (By.XPATH, '//input[@id="m_mobile"]'),
+        'name': (By.XPATH, '//input[@id="m_uname"]'),
+        'password': (By.XPATH, '//input[@id="m_password"]'),
+        'password_confirm': (By.XPATH, '//input[@id="m_confirm"]'),
+        'register': (By.XPATH, '//input[@id="m_getcode"]')
+    },
+    {
+        'url': 'http://www.lofter.com/phoneAccount/register',
+        'phone': (By.XPATH, '//input[@id="phone-num"]'),
+        'register': (By.ID, 'btn-auth')
+    },
+    {
+        'url': 'https://h5.ele.me/login/',
+        'phone': (By.XPATH, '//section[@class="MessageLogin-FsPlX"]/input'),
+        'register': (By.XPATH, '//section[@class="MessageLogin-FsPlX"]/button')
+    },
+    {
+        'url': 'https://passport.womai.com/register/redirect.do',
+        'phone': (By.XPATH, '//input[@id="Email"]'),
+        'name': (By.XPATH, '//input[@id="loginId"]'),
+        'password': (By.XPATH, '//input[@id="password"]'),
+        'password_confirm': (By.XPATH, '//input[@id="password2"]'),
+        'register': (By.XPATH, '//input[@id="validBtn"]')
+    },
+    {
+        'url': 'https://my.22.cn/register.html',
+        'phone': (By.XPATH, '//input[@id="iphoneCode"]'),
+        'register': (By.XPATH, '//input[@id="iphone-code-get"]'),
+    },
+    {
+        'url': 'http://www.888v666.com/zzsq/',
+        'phone': (By.XPATH, '//input[@id="mobile"]'),
+        'register': (By.XPATH, '//span[@class="item_code"]')
+    },
 ]
 
 special = [
@@ -165,9 +214,12 @@ special = [
         'password': (By.XPATH, '//input[@class="validPhoneCode"]'),
         'register': (By.CLASS_NAME, 'r_require_code')
     },
+
     # TODO: http://www.pptv.com/
     # TODO: http://vip.iqiyi.com/
     # TODO: http://www.eqxiu.com/
+    # TODO: http://www.baixing.com/oz/verify/reg
+    # TODO: https://www.a5.net/member.php?mod=register
     # TODO: https://accounts.douban.com/register
     # TODO: http://zt.epwk.com/1607epzhelu/
     # TODO: https://memberprod.alipay.com/account/reg/index.htm
