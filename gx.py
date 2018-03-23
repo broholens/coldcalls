@@ -6,7 +6,7 @@ options.add_argument('--headless')
 d = webdriver.Firefox(options=options)
 
 urls = [
-    # 'https://ppss.xdf.cn/h5/2-teacher/index.html?userId=gaoxiang15@xdf.cn&schoolId=6&teacherCode=TC1540&source=woxueTeacher&sourceExt=TC1540&from=groupmessage&isappinstalled=0',
+    'https://ppss.xdf.cn/h5/2-teacher/index.html?userId=gaoxiang15@xdf.cn&schoolId=6&teacherCode=TC1540&source=woxueTeacher&sourceExt=TC1540&from=groupmessage&isappinstalled=0',
     'https://ppss.xdf.cn/h5/2-teacher/index.html?userId=weiyunpeng@xdf.cn&schoolId=6&teacherCode=TC1537&source=woxueTeacher&sourceExt=TC1537&from=groupmessage&isappinstalled=0'
     'https://ppss.xdf.cn/h5/2-teacher/index.html?userId=hanyang9@xdf.cn&schoolId=6&teacherCode=TC1539&source=woxueTeacher&sourceExt=TC1539&from=groupmessage&isappinstalled=0',
     'https://ppss.xdf.cn/h5/2-teacher/index.html?userId=liuchongyou@xdf.cn&schoolId=6&teacherCode=TC1546&source=woxueTeacher&sourceExt=TC1546&from=groupmessage&isappinstalled=0',
