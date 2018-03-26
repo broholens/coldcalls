@@ -5,8 +5,8 @@ from flask import Flask
 app = Flask(__name__)
 
 
-@app.route('/json_data', methods=['GET'])
-def get_json_data():
+@app.route('/house', methods=['GET'])
+def get_house():
     return json.dumps(
         {
             "_id": "5a9d1f6b837cfd803c8361b6",
@@ -728,6 +728,78 @@ def get_json_data():
                 ],
                 "scenic_area": []
             }
+        }
+    )
+
+
+@app.route('/room', methods=['GET'])
+def get_room():
+    return json.dumps(
+        {
+            "_id": "5a9d1f6d837cfd803c8361e1",
+            "house_id": "238431",
+            "room_album": [
+                {
+                    "picture_title": "户型图（1/2）",
+                    "picture_url": "https://pic1.ajkimg.com/display/xinfang/a010f63ec8b6a823a97636ca44f6dac8/500x600.jpg"
+                },
+                {
+                    "picture_title": "户型图（2/2）",
+                    "picture_url": "https://pic1.ajkimg.com/display/xinfang/ebc83f01124dff119279beaf15df4b58/500x600.jpg"
+                },
+                {
+                    "picture_title": "样板间（1/9）",
+                    "picture_url": "https://pic1.ajkimg.com/display/xinfang/613d7148fcdf871e0a4b4134671c5acf/600x500c.jpg"
+                },
+                {
+                    "picture_title": "样板间（2/9）",
+                    "picture_url": "https://pic1.ajkimg.com/display/xinfang/6f809102c640365f849e46c5240c831b/600x500c.jpg"
+                },
+                {
+                    "picture_title": "样板间（3/9）",
+                    "picture_url": "https://pic1.ajkimg.com/display/xinfang/659a1990a27659bc02dc623e9305670a/600x500c.jpg"
+                },
+                {
+                    "picture_title": "样板间（4/9）",
+                    "picture_url": "https://pic1.ajkimg.com/display/xinfang/b5c82089a2c48a406a5536413d73c33c/600x500c.jpg"
+                },
+                {
+                    "picture_title": "样板间（5/9）",
+                    "picture_url": "https://pic1.ajkimg.com/display/xinfang/fd5427a882cfa6065809cd817f85b34b/600x500c.jpg"
+                },
+                {
+                    "picture_title": "样板间（6/9）",
+                    "picture_url": "https://pic1.ajkimg.com/display/xinfang/e86ddb57339d760c3fa96722e4d0483c/600x500c.jpg"
+                },
+                {
+                    "picture_title": "样板间（7/9）",
+                    "picture_url": "https://pic1.ajkimg.com/display/xinfang/60f460959902d2ecd040cf69541de5b5/600x500c.jpg"
+                },
+                {
+                    "picture_title": "样板间（8/9）",
+                    "picture_url": "https://pic1.ajkimg.com/display/xinfang/eca994355e1db645ace9a395c2398ea4/600x500c.jpg"
+                },
+                {
+                    "picture_title": "样板间（9/9）",
+                    "picture_url": "https://pic1.ajkimg.com/display/xinfang/5c74a6f6d5a126e0b601a98a714c15ee/600x500c.jpg"
+                }
+            ],
+            "room_type": "415㎡户型，联排别墅，建筑面积约415.00平米",
+            "room_sale_status": "售完",
+            "room_labels": [
+                "大户型",
+                "大阳台",
+                "大客厅",
+                "大主卧"
+            ],
+            "reference_price": "830万元/套",
+            "reference_down_payment": "249万",
+            "reference_monthly_payment": "30835元（商贷7成，供30年）",
+            "house_type": "联排别墅",
+            "house_area": "约415.00㎡",
+            "house_orientation": "朝南",
+            "house_storey_height": "3.00m",
+            "room_description": "客厅：5个卫生间设计，方便实用； 厨房：中西式厨房，舒适度高；"
         }
     )
 
