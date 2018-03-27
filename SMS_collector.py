@@ -16,7 +16,7 @@ class SMSBooming:
 
     def create_driver(self):
         options = webdriver.FirefoxOptions()
-        # options.add_argument('--headless')
+        options.add_argument('--headless')
         driver = webdriver.Firefox(options=options)
         driver.set_page_load_timeout(10)
         return driver
@@ -72,7 +72,7 @@ class SMSBooming:
 
     def run_telephone(self):
         """10点开刷　刷一次"""
-        self.timer(10, telephone)
+        self.timer(9, telephone)
 
     def run_daily(self):
         self.timer(12, daily)
@@ -87,10 +87,8 @@ class SMSBooming:
 
     def run_special(self):
         websites = [
-            self.bdgcw, self.xinlei_register, self.xinlei_login,
-            self.pass_17173, self.music_163, self.jiayuan, self.cnmo, self.fkw,
-            self.pptv, self.a5, self.alipay, self.baixing, self.iqiyi,
-            self.douban, self.liuxue51
+            self.xinlei_register, self.music_163, self.jiayuan, self.cnmo,
+            self.a5, self.liuxue51
         ]
         while True:
             driver = self.create_driver()
@@ -99,17 +97,17 @@ class SMSBooming:
                     website(driver)
                 except:
                     pass
-                time.sleep(10)
+                time.sleep(30)
             driver.close()
 
     def run(self):
-        # p1 = Process(target=self.run_constantly)
-        # p2 = Process(target=self.run_daily)
-        # p3 = Process(target=self.run_telephone)
+        p1 = Process(target=self.run_constantly)
+        p2 = Process(target=self.run_daily)
+        p3 = Process(target=self.run_telephone)
         p4 = Process(target=self.run_special)
-        # p1.start()
-        # p2.start()
-        # p3.start()
+        p1.start()
+        p2.start()
+        p3.start()
         p4.start()
     #
     # def bfsu(self, driver):
@@ -119,11 +117,11 @@ class SMSBooming:
     #     driver.find_element_by_name('phone').send_keys(self.phone)
     #     driver.find_element_by_id('sendEmail').click()
 
-    def bdgcw(self, driver):
-        self.request(driver, 'http://wuhan.bdcgw.cn/pctg/2345/2961/?A')
-        driver.find_element_by_xpath('//input[@id="gp"]').send_keys(choice(['601258', '300370', '601952', '603728']))
-        driver.find_element_by_xpath('//input[@name="tgMobile1"]').send_keys(self.phone)
-        driver.find_element_by_id('btnTg1').click()
+    # def bdgcw(self, driver):
+    #     self.request(driver, 'http://wuhan.bdcgw.cn/pctg/2345/2961/?A')
+    #     driver.find_element_by_xpath('//input[@id="gp"]').send_keys(choice(['601258', '300370', '601952', '603728']))
+    #     driver.find_element_by_xpath('//input[@name="tgMobile1"]').send_keys(self.phone)
+    #     driver.find_element_by_id('btnTg1').click()
 
     def cnmo(self, driver):
         self.request(driver, 'http://passport.cnmo.com/register/')
@@ -132,14 +130,14 @@ class SMSBooming:
         driver.find_element_by_xpath('//input[@id="m_password"]').send_keys('123qwe123')
         driver.find_element_by_xpath('//input[@id="m_confirm"]').send_keys('123qwe123')
         driver.find_element_by_xpath('//input[@id="m_getcode"]').click()
-
-    def xinlei_login(self, driver):
-        self.request(driver, 'http://i.xunlei.com/login.html')
-        driver.switch_to.frame('loginIframe')
-        driver.find_element_by_id('ml_tab').click()
-        time.sleep(0.5)
-        driver.find_element_by_xpath('//input[@id="ml_m"]').send_keys(self.phone)
-        driver.find_element_by_id('ml_gc').click()
+    #
+    # def xinlei_login(self, driver):
+    #     self.request(driver, 'http://i.xunlei.com/login.html')
+    #     driver.switch_to.frame('loginIframe')
+    #     driver.find_element_by_id('ml_tab').click()
+    #     time.sleep(0.5)
+    #     driver.find_element_by_xpath('//input[@id="ml_m"]').send_keys(self.phone)
+    #     driver.find_element_by_id('ml_gc').click()
 
     def xinlei_register(self, driver):
         self.request(driver, 'http://i.xunlei.com/login.html')
@@ -149,11 +147,11 @@ class SMSBooming:
         driver.find_element_by_xpath('//input[@id="pr_m"]').send_keys(self.phone)
         driver.find_element_by_id('pr_gc').click()
 
-    def fkw(self, driver):
-        self.request(driver, 'http://jz.fkw.com/reg.html')
-        driver.switch_to.frame('regIframe')
-        driver.find_element_by_xpath('//input[@id="regAcct"]').send_keys(self.phone)
-        driver.find_element_by_class_name('item_coed').click()
+    # def fkw(self, driver):
+    #     self.request(driver, 'http://jz.fkw.com/reg.html')
+    #     driver.switch_to.frame('regIframe')
+    #     driver.find_element_by_xpath('//input[@id="regAcct"]').send_keys(self.phone)
+    #     driver.find_element_by_class_name('item_coed').click()
 
     def jiayuan(self, driver):
         self.request(driver, 'http://reg.jiayuan.com/signup/fillbasic.php')
@@ -170,24 +168,24 @@ class SMSBooming:
         driver.find_element_by_class_name('j-pwd').send_keys(choice(self.passwords))
         driver.find_element_by_class_name('j-btn').click()
 
-    def pass_17173(self, driver):
-        self.request(driver, 'https://passport.17173.com/register')
-        driver.find_element_by_link_text('手机注册').click()
-        driver.find_element_by_xpath('//input[contains(@class, "input-passport valid")]').send_keys(self.phone)
-        driver.find_element_by_xpath('//input[contains(@class, "input-pw valid")]').send_keys(choice(self.passwords))
-        driver.find_element_by_class_name('get-captcha').click()
+    # def pass_17173(self, driver):
+    #     self.request(driver, 'https://passport.17173.com/register')
+    #     driver.find_element_by_link_text('手机注册').click()
+    #     driver.find_element_by_xpath('//input[contains(@class, "input-passport valid")]').send_keys(self.phone)
+    #     driver.find_element_by_xpath('//input[contains(@class, "input-pw valid")]').send_keys(choice(self.passwords))
+    #     driver.find_element_by_class_name('get-captcha').click()
 
-    def pptv(self, driver):
-        self.request(driver, 'http://www.pptv.com/')
-        driver.find_element_by_id('user_register_tj').click()
-        time.sleep(1)
-        driver.switch_to.frame('iframeLogin')
-        phone = driver.find_element_by_xpath('//form[@id="isPCSite"]/ul/li/input')
-        phone.send_keys(self.phone[:5])
-        time.sleep(1)
-        phone.send_keys(self.phone[5:])
-        driver.find_element_by_class_name('get-verify-code').click()
-
+    # def pptv(self, driver):
+    #     self.request(driver, 'http://www.pptv.com/')
+    #     driver.find_element_by_id('user_register_tj').click()
+    #     time.sleep(1)
+    #     driver.switch_to.frame('iframeLogin')
+    #     phone = driver.find_element_by_xpath('//form[@id="isPCSite"]/ul/li/input')
+    #     phone.send_keys(self.phone[:5])
+    #     time.sleep(1)
+    #     phone.send_keys(self.phone[5:])
+    #     driver.find_element_by_class_name('get-verify-code').click()
+    #     driver.find_element_by_class_name('get-verify-code').click()
     # def iqiyi(self, driver):
     #     self.request(driver, 'http://vip.iqiyi.com/')
     #     driver.find_element_by_class_name('j_vip_reg').click()
@@ -196,12 +194,12 @@ class SMSBooming:
     #     driver.find_element_by_class_name('txt-account').send_keys(self.phone)
     #     driver.find_element_by_link_text('注册').click()
 
-    def baixing(self, driver):
-        self.request(driver, 'http://www.baixing.com/oz/verify/reg')
-        driver.find_element_by_link_text('手机号码注册').click()
-        time.sleep(1)
-        driver.find_element_by_xpath('//div[@class="publish-detail-item"]/input').send_keys(self.phone)
-        driver.find_element_by_xpath('//p[@class="p-submit"]/button').click()
+    # def baixing(self, driver):
+    #     self.request(driver, 'http://www.baixing.com/oz/verify/reg')
+    #     driver.find_element_by_link_text('手机号码注册').click()
+    #     time.sleep(1)
+    #     driver.find_element_by_xpath('//div[@class="publish-detail-item"]/input').send_keys(self.phone)
+    #     driver.find_element_by_xpath('//p[@class="p-submit"]/button').click()
 
     def a5(self, driver):
         self.request(driver, 'https://www.a5.net/member.php?mod=register')
@@ -210,12 +208,12 @@ class SMSBooming:
         driver.find_element_by_id('mobile').send_keys(self.phone)
         driver.execute_script("showWindow('mcode', 'plugin.php?id=bischina_captcha:msmscode&mobile='+$('mobile').value,'get',0);")
 
-    def douban(self, driver):
-        self.request(driver, 'https://accounts.douban.com/register')
-        driver.find_element_by_xpath('//div[@class="agreement-btns"]/a').click()
-        time.sleep(1)
-        driver.find_element_by_id('verify_phone_num').send_keys(self.phone)
-        driver.find_element_by_id('request-phone-code-btn').click()
+    # def douban(self, driver):
+    #     self.request(driver, 'https://accounts.douban.com/register')
+    #     driver.find_element_by_xpath('//div[@class="agreement-btns"]/a').click()
+    #     time.sleep(1)
+    #     driver.find_element_by_id('verify_phone_num').send_keys(self.phone)
+    #     driver.find_element_by_id('request-phone-code-btn').click()
 
     def liuxue51(self, driver):
         self.request(driver, 'http://www.liuxue51.net/user/register')
@@ -225,21 +223,21 @@ class SMSBooming:
         driver.find_element_by_id('UbType1').click()
         driver.execute_script('sendMessage()')
 
-    def alipay(self, driver):
-        self.request(driver, 'https://memberprod.alipay.com/account/reg/index.htm')
-        iframe = 'dialog-iframe' + str(int(time.time() * 1000))
-        driver.switch_to.frame(iframe)
-        driver.find_element_by_class_name('J-agree-button').click()
-        time.sleep(1)
-        driver.find_element_by_id('J-accName').send_keys(self.phone)
-        driver.find_element_by_id('J-mobCode').send_keys('1')
-        driver.find_element_by_link_text('获取验证码').click()
+    # def alipay(self, driver):
+    #     self.request(driver, 'https://memberprod.alipay.com/account/reg/index.htm')
+    #     iframe = 'dialog-iframe' + str(int(time.time() * 1000))
+    #     driver.switch_to.frame(iframe)
+    #     driver.find_element_by_class_name('J-agree-button').click()
+    #     time.sleep(1)
+    #     driver.find_element_by_id('J-accName').send_keys(self.phone)
+    #     driver.find_element_by_id('J-mobCode').send_keys('1')
+    #     driver.find_element_by_link_text('获取验证码').click()
 
-    def iqiyi(self, driver):
-        self.request(driver, 'http://www.iqiyi.com/iframe/loginreg?is_reg=1')
-        driver.find_element_by_class_name('txt-account').click()
-        driver.find_element_by_class_name('txt-account').send_keys(self.phone)
-        driver.find_element_by_link_text('注册').click()
+    # def iqiyi(self, driver):
+    #     self.request(driver, 'http://www.iqiyi.com/iframe/loginreg?is_reg=1')
+    #     driver.find_element_by_class_name('txt-account').click()
+    #     driver.find_element_by_class_name('txt-account').send_keys(self.phone)
+    #     driver.find_element_by_link_text('注册').click()
 
 
 constantly = [
@@ -290,26 +288,6 @@ telephone = [
         'register': (By.XPATH, '//input[@class="lxb-cb-input-btn"]')
     },
     {
-        'url': 'http://www.xinquanedu.com/zt/2017/xinquan/',
-        'phone': (By.XPATH, '//input[@class="lxb-cb-input"]'),
-        'register': (By.XPATH, '//input[@class="lxb-cb-input-btn"]')
-    },
-    {
-        'url': 'http://sg.ivygate.info/',
-        'phone': (By.XPATH, '//input[@class="lxb-cb-input"]'),
-        'register': (By.XPATH, '//input[@class="lxb-cb-input-btn"]')
-    },
-    {
-        'url': 'https://www.liuxue86.com/',
-        'phone': (By.XPATH, '//form[@class="guestbook-fixed"]/input'),
-        'register': (By.XPATH, '//form[@class="guestbook-fixed"]/button')
-    },
-    {
-        'url': 'http://lp.liuxue.com/usa/hot/home/#/',
-        'phone': (By.XPATH, '//input[@class="lxb-cb-input"]'),
-        'register': (By.XPATH, '//input[@class="lxb-cb-input-btn"]')
-    },
-    {
         'url': 'http://liuxue.xdf.cn/',
         'phone': (By.ID, 'stu_Phone'),
         'name': (By.ID, 'stu_Name'),
@@ -322,34 +300,56 @@ telephone = [
         'register': (By.XPATH, '//form[@id="submitform"]/div/input')
     },
     {
-        'url': 'http://liuxue.fm/',
-        'phone': (By.XPATH, '//input[@class="lxb-cb-input"]'),
-        'register': (By.XPATH, '//input[@class="lxb-cb-input-btn"]')
-    },
-    {
-        'url': 'http://yingguo.liuxue86.com/',
-        'name': (By.NAME, 'uname'),
-        'phone': (By.NAME, 'telephone'),
-        'register': (By.CLASS_NAME, 'btn-assertive')
-    },
-    {
-        'url': 'http://xa.jiajiaoban.cn/pc/izk/index.html',
-        'phone': (By.ID, 'studentname2'),
-        'name': (By.ID, 'mobilephone2'),
-        'register': (By.CLASS_NAME, 'xes-btn1')
-    },
-    {
-        'url': 'http://xa.zgjhjy.com/',
+        'url': 'http://sqhd.zgjhjy.com/lpk/gkstk.html?activ=14&p=%3Cscript%20type=%27text/javascript%27%3EGetPhone400();%3C/script%3E',
         'name': (By.ID, 'name'),
         'phone': (By.ID, 'phone'),
         'register': (By.ID, 'btn')
     },
-    {
-        'url': 'http://ruishi.liuxue86.com/',
-        'name': (By.NAME, 'uname'),
-        'phone': (By.NAME, 'telephone'),
-        'register': (By.CLASS_NAME, 'btn-assertive')
-    },
+    # select
+    # {
+    #     'url': 'http://yingguo.liuxue86.com/',
+    #     'name': (By.NAME, 'uname'),
+    #     'phone': (By.NAME, 'telphone'),
+    #     'register': (By.CLASS_NAME, 'btn-assertive')
+    # },
+    # 会打开新窗口　导致driver关不掉
+    # {
+    #     'url': 'http://xa.jiajiaoban.cn/pc/izk/index.html',
+    #     'name': (By.ID, 'studentname2'),
+    #     'phone': (By.ID, 'mobilephone2'),
+    #     'register': (By.CLASS_NAME, 'xes-btn1')
+    # },
+    # {
+    #     'url': 'http://www.xinquanedu.com/zt/2017/xinquan/',
+    #     'phone': (By.XPATH, '//input[@class="lxb-cb-input"]'),
+    #     'register': (By.XPATH, '//input[@class="lxb-cb-input-btn"]')
+    # },
+    # {
+    #     'url': 'http://sg.ivygate.info/',
+    #     'phone': (By.XPATH, '//input[@class="lxb-cb-input"]'),
+    #     'register': (By.XPATH, '//input[@class="lxb-cb-input-btn"]')
+    # },
+    # {
+    #     'url': 'http://lp.liuxue.com/usa/hot/home/#/',
+    #     'phone': (By.XPATH, '//input[@class="lxb-cb-input"]'),
+    #     'register': (By.XPATH, '//input[@class="lxb-cb-input-btn"]')
+    # },
+    # {
+    #     'url': 'http://liuxue.fm/',
+    #     'phone': (By.XPATH, '//input[@class="lxb-cb-input"]'),
+    #     'register': (By.XPATH, '//input[@class="lxb-cb-input-btn"]')
+    # },
+    # {
+    #     'url': 'https://www.liuxue86.com/',
+    #     'phone': (By.XPATH, '//form[@class="guestbook-fixed"]/input'),
+    #     'register': (By.XPATH, '//form[@class="guestbook-fixed"]/button')
+    # },
+    # {
+    #     'url': 'http://ruishi.liuxue86.com/',
+    #     'name': (By.NAME, 'uname'),
+    #     'phone': (By.NAME, 'telphone'),
+    #     'register': (By.CLASS_NAME, 'btn-assertive')
+    # },
 ]
 
 daily = [
@@ -401,42 +401,36 @@ daily = [
         'phone': (By.ID, 'mobile'),
         'register': (By.CLASS_NAME, 'button')
     },
-    {
-        'url': 'http://zt.epwk.com/1607epzhelu/',
-        'phone': (By.ID, 'mobile2'),
-        'register': (By.ID, 'verify2')
-    },
+    # {
+    #     'url': 'http://zt.epwk.com/1607epzhelu/',
+    #     'phone': (By.ID, 'mobile2'),
+    #     'register': (By.ID, 'verify2')
+    # },
     {
         'url': 'https://weibo.com/signup/signup.php',
         'phone': (By.NAME, 'username'),
         'password': (By.NAME, 'passwd'),
-        'register': (By.CLASS_NAME, 'W_btn_e')
+        'register': (By.CLASS_NAME, 'W_btn_big')
     },
-    {
-        'url': 'http://www.zhixue.com/container/reg/parent/reg',
-        'phone': (By.ID, 'reg_txtMobile'),
-        'password': (By.ID, 'reg_txtPwd'),
-        'register': (By.ID, 'reg_btnCode')
-    },
+    # {
+    #     'url': 'http://www.zhixue.com/container/reg/parent/reg',
+    #     'phone': (By.ID, 'reg_txtMobile'),
+    #     'password': (By.ID, 'reg_txtPwd'),
+    #     'register': (By.ID, 'reg_btnCode')
+    # },
 ]
 
-special = [
-    # 获取不到
-    {
-        'url': 'http://www.lofter.com/phoneAccount/register',
-        'phone': (By.XPATH, '//input[@id="phone-num"]'),
-        'register': (By.LINK_TEXT, '获取验证码')
-    },
-    # 请求不到
-    {
-        'url': 'http://www.888v666.com/zzsq/',
-        'phone': (By.XPATH, '//input[@id="mobile"]'),
-        'register': (By.XPATH, '//span[@class="item_code"]')
-    },
-
-    # TODO: https://memberprod.alipay.com/account/reg/index.htm
-]
-
-
-if __name__ == '__main__':
-    SMSBooming('13909188482').run()
+# special = [
+#     # 获取不到
+#     {
+#         'url': 'http://www.lofter.com/phoneAccount/register',
+#         'phone': (By.XPATH, '//input[@id="phone-num"]'),
+#         'register': (By.LINK_TEXT, '获取验证码')
+#     },
+#     # 请求不到
+#     {
+#         'url': 'http://www.888v666.com/zzsq/',
+#         'phone': (By.XPATH, '//input[@id="mobile"]'),
+#         'register': (By.XPATH, '//span[@class="item_code"]')
+#     },
+# ]
