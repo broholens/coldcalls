@@ -60,7 +60,7 @@ class ColdCall:
     def __init__(self, phone_number):
         self.driver = make_driver()
         self.phone_number = phone_number
-        self.name = Faker().name()
+        self.name = Faker('zh_CN').name()
         self.sites = self.load_sites()
 
     def tease_site(self, site):
@@ -70,17 +70,18 @@ class ColdCall:
         username, password = site.get('username_path'), site.get('password_path')
         phone_path, submit_path = site['phone_path'], site.get('submit_path')
         password_confirm = site.get('password_confirm_path')
-        sleep_time = float(site.get('sleep_time', 0))
-        message = site.get('message')
+        sleep_time, message = float(site.get('sleep_time', 0)), site.get('message')
+        preset, postset = site.get('preset'), site.get('postset')
         # 等待表单页面加载完全
-        if sleep_time != 0:
-            time.sleep(sleep_time)
+        sleep_time and time.sleep(sleep_time)
+        preset and self._parse_type(preset)
         # 填写表单
         self._send_optional_value(username, self.name)
         self.send_phone_number(phone_path)
         self._send_optional_value(password, self.password)
         self._send_optional_value(password_confirm, self.password)
-        self._find_element(submit_path).click()
+        submit_path and self._find_element(submit_path).click()
+        postset and self._parse_type(postset)
 
     def send_phone_number(self, phone_path):
         """逐个字符输入手机号"""
@@ -89,6 +90,15 @@ class ColdCall:
         for i in range(11):
             self._find_element(phone_path).send_keys(self.phone_number[i])
             self.random_sleep(0.3)
+
+    def _parse_type(self, item):
+        """解析preset和postset字段，执行点击命令/脚本"""
+        set_type = item.get('type', 'click')
+        if set_type == 'click':
+            self._find_element(item).click()
+            time.sleep(0.1)
+        elif set_type == 'script':
+            self.driver.execute_script(item['value'])
 
     def _parse_mode(self, item):
         """解析配置文件中的mode,默认为xpath"""
@@ -116,6 +126,7 @@ class ColdCall:
     def run(self):
         for site in self.sites:
             self.tease_site(site)
+        # self.tease_site(self.sites[-1])
 
 
 if __name__ == '__main__':
