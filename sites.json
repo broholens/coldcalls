@@ -27,5 +27,19 @@
       "type": "script",
       "value": "FunLM10GetPrice()"
     }
+  },
+    {
+    "url": "http://www.bole.com/registerPage",
+    "username_path": {
+      "mode": "id",
+      "value": "yonghu"
+    },
+    "phone_path": {
+      "mode": "id",
+      "value": "shouji"
+    },
+    "submit_path": {
+      "value": "//a[@id=\"sub\"]"
+    }
   }
 ]

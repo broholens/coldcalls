@@ -70,7 +70,7 @@ class ColdCall:
         username, password = site.get('username_path'), site.get('password_path')
         phone_path, submit_path = site['phone_path'], site.get('submit_path')
         password_confirm = site.get('password_confirm_path')
-        sleep_time, message = float(site.get('sleep_time', 0)), site.get('message')
+        sleep_time, message = float(site.get('sleep_time', 0)), site.get('message_path')
         preset, postset = site.get('preset'), site.get('postset')
         # 等待表单页面加载完全
         sleep_time and time.sleep(sleep_time)
@@ -80,6 +80,7 @@ class ColdCall:
         self.send_phone_number(phone_path)
         self._send_optional_value(password, self.password)
         self._send_optional_value(password_confirm, self.password)
+        self._send_optional_value(message, message and message['msg'])
         submit_path and self._find_element(submit_path).click()
         postset and self._parse_type(postset)
 
@@ -96,7 +97,7 @@ class ColdCall:
         set_type = item.get('type', 'click')
         if set_type == 'click':
             self._find_element(item).click()
-            time.sleep(0.1)
+            time.sleep(0.2)
         elif set_type == 'script':
             self.driver.execute_script(item['value'])
 
@@ -124,9 +125,9 @@ class ColdCall:
         time.sleep(random.random()*max_sleep_time)
 
     def run(self):
-        for site in self.sites:
-            self.tease_site(site)
-        # self.tease_site(self.sites[-1])
+        # for site in self.sites:
+        #     self.tease_site(site)
+        self.tease_site(self.sites[-1])
 
 
 if __name__ == '__main__':
