@@ -28,7 +28,7 @@
       "value": "FunLM10GetPrice()"
     }
   },
-    {
+  {
     "url": "http://www.bole.com/registerPage",
     "username_path": {
       "mode": "id",
@@ -40,6 +40,54 @@
     },
     "submit_path": {
       "value": "//a[@id=\"sub\"]"
+    }
+  },
+  {
+    "url": "http://www.kgc.cn/zhuanti/cpjh_pc.shtml",
+    "username_path": {
+      "mode": "id",
+      "value": "userName"
+    },
+    "phone_path": {
+      "mode": "id",
+      "value": "tel"
+    },
+    "submit_path": {
+      "mode": "id",
+      "value": "btn-ty"
+    }
+  },
+  {
+    "url": "http://www.gemstonecn.com/consociation.php",
+    "iframe": "LR_miniframe",
+    "preset": {
+      "type": "script",
+      "value": "showtel1()"
+    },
+    "phone_path": {
+      "value": "//div[@class=\"telephone\"]/input[1]"
+    },
+    "submit_path": {
+      "value": "//div[@class=\"telephone\"]/input[2]"
+    },
+    "sleep_time": 3
+  },
+  {
+    "url": "https://qy.thea.cn/",
+    "username_path": {
+      "mode": "name",
+      "value": "contact"
+    },
+    "phone_path": {
+      "mode": "name",
+      "value": "mobile"
+    },
+    "message_path": {
+      "mode": "name",
+      "value": "content"
+    },
+    "submit_path": {
+      "value": "//div[@class=\"qpform\"]//input[last()]"
     }
   }
 ]
