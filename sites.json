@@ -1,0 +1,31 @@
+[
+  {
+    "url": "https://www.liuxue86.com/",
+    "phone_path": {
+      "value": "//li/form[@class=\"guestbook-fixed\"]/input"
+    },
+    "submit_path": {
+      "value": "//li/form[@class=\"guestbook-fixed\"]/button"
+    },
+    "sleep_time": 2
+  },
+  {
+    "url": "http://www.beimu.com/school/",
+    "preset": {
+      "type": "click",
+      "value": "//li[@class=\"clearfix\"]/div/a[2]"
+    },
+    "username_path": {
+      "mode": "id",
+      "value": "LM10ContactID"
+    },
+    "phone_path": {
+      "mode": "id",
+      "value": "LM10PhoneID"
+    },
+    "postset": {
+      "type": "script",
+      "value": "FunLM10GetPrice()"
+    }
+  }
+]
