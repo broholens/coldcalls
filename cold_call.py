@@ -71,6 +71,8 @@ class ColdCall:
         phone_path, submit_path = site['phone_path'], site.get('submit_path')
         iframe, password_confirm = site.get('iframe'), site.get('password_confirm_path')
         sleep_time, message = float(site.get('sleep_time', 0)), site.get('message_path')
+        # 不填写留言内容默认使用手机号
+        message_content = message and message.get('msg', self.phone_number)
         preset, postset = site.get('preset'), site.get('postset')
         # 等待表单页面加载完全
         sleep_time and time.sleep(sleep_time)
@@ -81,7 +83,7 @@ class ColdCall:
         self.send_phone_number(phone_path)
         self._send_optional_value(password, self.password)
         self._send_optional_value(password_confirm, self.password)
-        self._send_optional_value(message, message and message['msg'])
+        self._send_optional_value(message, message_content)
         submit_path and self._find_element(submit_path).click()
         postset and self._parse_type(postset)
 
