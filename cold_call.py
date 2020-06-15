@@ -69,11 +69,12 @@ class ColdCall:
         # 获取site字段
         username, password = site.get('username_path'), site.get('password_path')
         phone_path, submit_path = site['phone_path'], site.get('submit_path')
-        password_confirm = site.get('password_confirm_path')
+        iframe, password_confirm = site.get('iframe'), site.get('password_confirm_path')
         sleep_time, message = float(site.get('sleep_time', 0)), site.get('message_path')
         preset, postset = site.get('preset'), site.get('postset')
         # 等待表单页面加载完全
         sleep_time and time.sleep(sleep_time)
+        iframe and self.driver.switch_to.frame(iframe)
         preset and self._parse_type(preset)
         # 填写表单
         self._send_optional_value(username, self.name)
@@ -97,9 +98,9 @@ class ColdCall:
         set_type = item.get('type', 'click')
         if set_type == 'click':
             self._find_element(item).click()
-            time.sleep(0.2)
         elif set_type == 'script':
             self.driver.execute_script(item['value'])
+        time.sleep(0.2)
 
     def _parse_mode(self, item):
         """解析配置文件中的mode,默认为xpath"""
