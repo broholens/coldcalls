@@ -1,32 +1,35 @@
 # Coldcalls & Messages
 
-销售人员给指定手机号打推销电话、平台给指定手机号发送注册/登陆验证码
+本项目类似于轰炸机。<br>
+逻辑如下：
+- 使用手机号在留学、在线教育类网站留下信息，则销售会主动不厌其烦地call此手机号。
+- 使用手机号注册、登录网站，则会收到短信验证码。
+<br>
+<br>
 
-
-### 网站列表
+### 已解析网站列表
 
 #### 电话
-
-- [x] 1. [liuxue86](https://www.liuxue86.com/)
-- [x] 2. [中大网校](http://www.wangxiao.cn/)
-- [x] 3. [北木](http://www.beimu.com/school/)
-- [x] 4. [京翰](https://www.zgjhjy.com/)
-- [x] 5. [湖北成人教育网](https://m.hbcjw.com/baoming/)
-- [x] 6. [课工厂](http://www.kgc.cn/zhuanti/cpjh_pc.shtml)
-- [x] 7. [创思童](http://www.gemstonecn.com/consociation.php)
-- [x] 8. [STEM](http://bdzqc.zsld101.com/web/846/15538/23597/index_tpl.htm)
-- [x] 10. [诺达名师](http://qy.thea.cn/)
-- [x] 11. [掌门一对一](https://www.zhangmen.org/lp/sem)
-- [x] 12. [加盟1对1](http://bd.jiameng.cn/angli/)
-- [x] 13. [秦学100](http://fd1.qinxue100.com/index.html)
-- [x] 20. [瑞思](http://www.risecenter.com/)
-9. [教育联展网](https://www.thea.cn/zt/erjian/) iframe嵌套
-14. [新东方](http://www.xdf.cn/) 多关键词+下拉
-15. [英孚](http://www.ef.com.cn/englishfirst/kids/kids-course) 下拉
-16. [爱贝](http://ld.abiechina.com/c1.html) 下拉
-17. [西安市长安区环球少年学习培训中心](http://www.ngkidsxa.cn/messages.asp) 多关键词
-18. [趣趣abc](https://www.ququabc.com/offlinep.htm) 验证码+下拉
-19. [hellokid](https://www.hellokid.com/) 验证码+下拉
+1. [liuxue86](https://www.liuxue86.com/)
+2. [中大网校](http://www.wangxiao.cn/)
+3. [北木](http://www.beimu.com/school/)
+4. [京翰](https://www.zgjhjy.com/)
+5. [湖北成人教育网](https://m.hbcjw.com/baoming/)
+6. [课工厂](http://www.kgc.cn/zhuanti/cpjh_pc.shtml)
+7. [创思童](http://www.gemstonecn.com/consociation.php)
+8. [STEM](http://bdzqc.zsld101.com/web/846/15538/23597/index_tpl.htm)
+9.  [诺达名师](http://qy.thea.cn/)
+10. [掌门一对一](https://www.zhangmen.org/lp/sem)
+11. [加盟1对1](http://bd.jiameng.cn/angli/)
+12. [秦学100](http://fd1.qinxue100.com/index.html)
+13. [瑞思](http://www.risecenter.com/)
+14. [教育联展网](https://www.thea.cn/zt/erjian/) iframe嵌套
+15. [新东方](http://www.xdf.cn/) 多关键词+下拉
+16. [英孚](http://www.ef.com.cn/englishfirst/kids/kids-course) 下拉
+17. [爱贝](http://ld.abiechina.com/c1.html) 下拉
+18. [西安市长安区环球少年学习培训中心](http://www.ngkidsxa.cn/messages.asp) 多关键词
+19. [趣趣abc](https://www.ququabc.com/offlinep.htm) 验证码+下拉
+20. [hellokid](https://www.hellokid.com/) 验证码+下拉
 21. [瑞思2](http://xa.oddep.com/xuexiao/3946.html)
 22. [乐宁](http://learning.learningedu.com.cn/)
 23. [七彩星球](http://www.cctvqcxq.com/)
@@ -55,7 +58,6 @@
 46. [趣码](http://xw7c8v4rx7ajxxvj.mikecrm.com/kiMGSiQ)
 
 #### 短信
-
 1. [百姓网](http://www.baixing.com/oz/verify/reg)
 2. [58登陆](https://passport.58.com/login)
 3. [58注册](https://passport.58.com/reg)
