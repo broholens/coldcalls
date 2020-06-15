@@ -11,13 +11,10 @@
 
 #### 电话
 1. [liuxue86](https://www.liuxue86.com/)
-2. [中大网校](http://www.wangxiao.cn/)
 3. [北木](http://www.beimu.com/school/)
 4. [京翰](https://www.zgjhjy.com/)
-5. [湖北成人教育网](https://m.hbcjw.com/baoming/)
 6. [课工厂](http://www.kgc.cn/zhuanti/cpjh_pc.shtml)
 7. [创思童](http://www.gemstonecn.com/consociation.php)
-8. [STEM](http://bdzqc.zsld101.com/web/846/15538/23597/index_tpl.htm)
 9.  [诺达名师](http://qy.thea.cn/)
 10. [掌门一对一](https://www.zhangmen.org/lp/sem)
 11. [加盟1对1](http://bd.jiameng.cn/angli/)
