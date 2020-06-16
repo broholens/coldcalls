@@ -89,5 +89,21 @@
     "submit_path": {
       "value": "//div[@class=\"qpform\"]//input[last()]"
     }
+  },
+  {
+    "rate": 3,
+    "url": "https://www.zhangmen.com/lp/sem",
+    "username_path": {
+      "mode": "id",
+      "value": "s-name"
+    },
+    "phone_path": {
+      "mode": "id",
+      "value": "stu_mobile1"
+    },
+    "submit_path": {
+      "mode": "id",
+      "value": "pcheaderbtn2"
+    }
   }
 ]
