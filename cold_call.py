@@ -18,7 +18,7 @@ class ColdCall:
     }
 
     def __init__(self, phone_number):
-        self.driver = fun.make_driver()
+        self.driver = fun.make_driver(load_img=True)
         self.phone_number = phone_number
         self.name = Faker('zh_CN').name()
         self.sites = fun.load_json_file("sites.json")
