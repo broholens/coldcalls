@@ -105,5 +105,71 @@
       "mode": "id",
       "value": "pcheaderbtn2"
     }
+  },
+  {
+    "url": "http://zs.jiameng.com/goJmPriceBoard2.html",
+    "username_path": {
+      "mode": "id",
+      "value": "txtName"
+    },
+    "phone_path": {
+      "mode": "id",
+      "value": "txtTel"
+    },
+    "submit_path": {
+      "mode": "id",
+      "value": "imgBtnUp"
+    }
+  },
+  {
+    "url": "http://fd1.qinxue100.com/index.html",
+    "username_path": {
+      "mode": "id",
+      "value": "name"
+    },
+    "phone_path": {
+      "mode": "id",
+      "value": "tel"
+    },
+    "submit_path": {
+      "mode": "name",
+      "value": "submit"
+    }
+  },
+  {
+    "url": "https://www.ef.com.cn/englishfirst/kids/",
+    "phone_path": {
+      "mode": "name",
+      "value": "mobile"
+    },
+    "submit_path": {
+      "value": "//form[contains(@class, \"ef-form\")]/div[2]/div/div[2]/a"
+    }
+  },
+  {
+    "url": "https://www.ququabc.com/offlinep.htm",
+    "username_path": {
+      "mode": "name",
+      "value": "username"
+    },
+    "phone_path": {
+      "mode": "id",
+      "value": "mobile"
+    },
+    "submit_path": {
+      "mode": "class_name",
+      "value": "submit"
+    }
+  },
+  {
+    "url": "http://learning.learningedu.com.cn/",
+    "phone_path": {
+      "mode": "id",
+      "value": "Tel"
+    },
+    "submit_path": {
+      "mode": "id",
+      "value": "pctest01"
+    }
   }
 ]
