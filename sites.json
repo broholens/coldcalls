@@ -171,5 +171,61 @@
       "mode": "id",
       "value": "pctest01"
     }
+  },
+  {
+    "url": "http://www.cctvqcxq.com/",
+    "username_path": {
+      "mode": "id",
+      "value": "name"
+    },
+    "phone_path": {
+      "mode": "id",
+      "value": "mobile"
+    },
+    "message_path": {
+      "mode": "id",
+      "value": "area",
+      "msg": "上海"
+    },
+    "submit_path": {
+      "value": "//span[@class=\"ant-form-item-children\"]/button"
+    }
+  },
+  {
+    "url": "http://www.onlychild.cn/",
+    "phone_path": {
+      "mode": "id",
+      "value": "mobile"
+    },
+    "submit_path": {
+      "mode": "id",
+      "value": "btnSubmit"
+    }
+  },
+  {
+    "rate": 3,
+    "url": "https://www.nicekid.com/register/nicekid-biteabc",
+    "phone_path": {
+      "mode": "name",
+      "value": "iphone"
+    },
+    "submit_path": {
+      "value": "//a[contains(@class, \"get-code\")]"
+    }
+  },
+  {
+    "rate": 3,
+    "url": "http://www.51talk.com/landing/bdpz1_087737.html",
+    "preset": {
+      "mode": "class_name",
+      "value": "btn-show"
+    },
+    "phone_path": {
+      "mode": "name",
+      "value": "mobile"
+    },
+    "submit_path": {
+      "value": "//button[contains(@class, \"sendBtn\")]"
+    }
   }
 ]
