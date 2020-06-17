@@ -90,6 +90,7 @@ python cold_call.py
 9.  [诺达名师](http://qy.thea.cn/)
 10. [掌门一对一](https://www.zhangmen.org/lp/sem)
 
+<!--
 [^_^]:
     11. [加盟1对1](http://bd.jiameng.cn/angli/)
     12. [秦学100](http://fd1.qinxue100.com/index.html)
@@ -147,3 +148,4 @@ python cold_call.py
     18. [vipjr](https://www.vipjr.com/)
     19. [千里马](http://www.qianlima.com/new/keywordzhuolu_invite.jsp)
     20. [编程猫](https://hi.codemao.cn/v2)
+-->
