@@ -1,48 +1,8 @@
-import random
 import time
-import json
-import pathlib
 
+from pyfunctions import fun
 from faker import Faker
-from selenium import webdriver
 from selenium.webdriver.common.by import By
-from selenium.webdriver.common.desired_capabilities import DesiredCapabilities
-
-
-def make_driver(driver="chrome", load_img=False):
-    """只支持chrome和phantomjs"""
-    driver = driver.lower()
-    ua = Faker().user_agent()
-    if driver == "phantomjs":
-        dcap = dict(DesiredCapabilities.PHANTOMJS)
-        dcap["phantomjs.page.settings.userAgent"] = ua
-        dcap["phantomjs.page.settings.loadImages"] = load_img
-        d = webdriver.PhantomJS(desired_capabilities=dcap)
-    elif driver == "chrome":
-        # 创建chrome并配置
-        ops = webdriver.ChromeOptions()
-        # ops.add_argument("--headless")
-        ops.add_argument("--no-sandbox")
-        ops.add_argument("--disable-gpu")
-        ops.add_argument("--start-maximized")
-        # ops.add_argument('--incognito')
-        ops.add_argument("lang=zh_CN")
-        if load_img is False:
-            prefs = {"profile.managed_default_content_settings.images": 2}
-            ops.add_experimental_option("prefs", prefs)
-        # 解决window.navigator.webdriver=True的问题
-        # https://wwwhttps://www.cnblogs.com/presleyren/p/10771000.html.cnblogs.com/presleyren/p/10771000.html
-        ops.add_experimental_option("excludeSwitches", ["enable-automation"])
-        ops.add_argument(f'user-agent={Faker().user_agent()}')
-        try:
-            # selenium兼容问题
-            d = webdriver.Chrome(options=ops)
-        except:
-            d = webdriver.Chrome(chrome_options=ops)
-    else:
-        raise ValueError("Unknown argument %s. Support chrome and phantomjs only." % driver)
-    d.maximize_window()
-    return d
 
 
 class ColdCall:
@@ -58,10 +18,10 @@ class ColdCall:
     }
 
     def __init__(self, phone_number):
-        self.driver = make_driver()
+        self.driver = fun.make_driver()
         self.phone_number = phone_number
         self.name = Faker('zh_CN').name()
-        self.sites = self.load_sites()
+        self.sites = fun.load_json_file("sites.json")
 
     def tease_site(self, site):
         """根据配置点击网站进行注册"""
@@ -93,7 +53,7 @@ class ColdCall:
         self._find_element(phone_path).clear()
         for i in range(11):
             self._find_element(phone_path).send_keys(self.phone_number[i])
-            self.random_sleep(0.3)
+            fun.random_sleep(0.3)
 
     def _parse_type(self, item):
         """解析preset和postset字段，执行点击命令/脚本"""
@@ -117,15 +77,6 @@ class ColdCall:
         """对于可能存在的值进行填写"""
         if key:
             self._find_element(key).send_keys(value)
-
-    @staticmethod
-    def load_sites():
-        content = pathlib.Path('sites.json').read_text()
-        return json.loads(content)
-
-    @staticmethod
-    def random_sleep(max_sleep_time):
-        time.sleep(random.random()*max_sleep_time)
 
     def run(self):
         # for site in self.sites:
