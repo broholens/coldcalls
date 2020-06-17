@@ -227,5 +227,62 @@
     "submit_path": {
       "value": "//button[contains(@class, \"sendBtn\")]"
     }
+  },
+  {
+    "url": "http://www.unclesamedu.com/index.php",
+    "phone_path": {
+      "mode": "id",
+      "value": "morder_tel"
+    },
+    "username_path": {
+      "mode": "id",
+      "value": "morder_name"
+    },
+    "submit_path": {
+      "mode": "id",
+      "value": "btn"
+    }
+  },
+  {
+    "rate": 3,
+    "url": "https://zt.xueersi.com/zaixian/pc-zhu-tiyanke/index.html",
+    "phone_path": {
+      "mode": "id",
+      "value": "phone"
+    },
+    "submit_path": {
+      "mode": "id",
+      "value": "phone-code-bt"
+    }
+  },
+  {
+    "url": "http://www.hellotom-edu.com/470",
+    "phone_path": {
+      "mode": "id",
+      "value": "iphone"
+    },
+    "username_path": {
+      "mode": "id",
+      "value": "name"
+    },
+    "submit_path": {
+      "mode": "class_name",
+      "value": "jms_tj"
+    }
+  },
+  {
+    "url": "https://www.qinxue365.com/business/388.html",
+    "phone_path": {
+      "mode": "name",
+      "value": "#Tel"
+    },
+    "username_path": {
+      "mode": "name",
+      "value": "#Name"
+    },
+    "submit_path": {
+      "mode": "id",
+      "value": "sub"
+    }
   }
 ]
