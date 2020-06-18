@@ -1,8 +1,10 @@
 import time
+import random
 
 from pyfunctions import fun
 from faker import Faker
 from selenium.webdriver.common.by import By
+from selenium.common.exceptions import TimeoutException
 
 
 class ColdCall:
@@ -19,9 +21,10 @@ class ColdCall:
 
     def __init__(self, phone_number):
         self.driver = fun.make_driver(load_img=True)
+        self.driver.set_page_load_timeout(20)
+        self.driver.set_script_timeout(20)
         self.phone_number = phone_number
         self.name = Faker('zh_CN').name()
-        self.sites = fun.load_json_file("sites.json")
 
     def tease_site(self, site):
         """根据配置点击网站进行注册"""
@@ -46,6 +49,14 @@ class ColdCall:
         self._send_optional_value(message, message_content)
         submit_path and self._find_element(submit_path).click()
         postset and self._parse_type(postset)
+        fun.random_sleep(2)
+        # 处理alert
+        try:
+            alert = self.driver.switch_to.alert()
+            alert.accept()
+        except:
+            pass
+        fun.random_sleep(8)
 
     def send_phone_number(self, phone_path):
         """逐个字符输入手机号"""
@@ -64,6 +75,15 @@ class ColdCall:
             self.driver.execute_script(item['value'])
         time.sleep(0.2)
 
+    @staticmethod
+    def _load_sites():
+        sites = fun.load_json_file("sites.json")
+        rate_sites = list(filter(lambda x: "rate" in x, sites))
+        for site in rate_sites:
+            sites.extend((int(site['rate']) - 1) * [site])
+        random.shuffle(sites)
+        return sites
+
     def _parse_mode(self, item):
         """解析配置文件中的mode,默认为xpath"""
         mode = item.get('mode', 'xpath')
@@ -79,11 +99,20 @@ class ColdCall:
             self._find_element(key).send_keys(value)
 
     def run(self):
-        # for site in self.sites:
-        #     self.tease_site(site)
-        self.tease_site(self.sites[-1])
+        for site in self._load_sites():
+            try:
+                self.tease_site(site)
+            except TimeoutException:
+                try:
+                    self.driver.refresh()
+                except:
+                    print("ERROR", site['url'])
+            except Exception as e:
+                print(e)
+                print("ERROR", site['url'])
+        # self.tease_site(self.sites[-1])
 
 
 if __name__ == '__main__':
-    cc = ColdCall("17719674031")
+    cc = ColdCall("17789684939")
     cc.run()
