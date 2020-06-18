@@ -284,5 +284,153 @@
       "mode": "id",
       "value": "sub"
     }
+  },
+  {
+    "url": "http://www.it61.cn/coding-class/",
+    "phone_path": {
+      "value": "//div[@class=\"phNB\"]/input"
+    },
+    "submit_path": {
+      "value": "//div[@class=\"tijiao\"]"
+    }
+  },
+  {
+    "url": "https://all-dream.com/",
+    "phone_path": {
+      "value": "//input[@class=\"ant-input\"][2]"
+    },
+    "username_path": {
+      "value": "//input[@class=\"ant-input\"][1]"
+    },
+    "submit_path": {
+      "value": "//nav[@class=\"bottom-fixed-bar\"]/div/button"
+    }
+  },
+  {
+    "url": "http://www.ubxedu.com/course/",
+    "iframe": "LR_miniframe",
+    "preset": {
+      "type": "script",
+      "value": "showtel1()"
+    },
+    "phone_path": {
+      "mode": "id",
+      "value": "tel1"
+    },
+    "submit_path": {
+      "mode": "id",
+      "value": "telbtn"
+    },
+    "sleep_time": 3
+  },
+  {
+    "url": "https://www.magaoedu.com/",
+    "phone_path": {
+      "mode": "id",
+      "value": "phone"
+    },
+    "username_path": {
+      "mode": "id",
+      "value": "name"
+    },
+    "message_path": {
+      "mode": "id",
+      "value": "age",
+      "msg": "上海"
+    },
+    "submit_path": {
+      "mode": "id",
+      "value": "save"
+    }
+  },
+  {
+    "url": "http://www.xiaomawang.net/",
+    "iframe": "iframe_company_mini",
+    "phone_path": {
+      "value": "//input[contains(@class, \"net_callBack_input\")]"
+    },
+    "submit_path": {
+      "mode": "class_name",
+      "value": "net_callBack_btn"
+    },
+    "sleep_time": 2
+  },
+  {
+    "url": "http://www.xiaomawang.net/",
+    "iframe": "iframe_company_mini",
+    "phone_path": {
+      "value": "//input[contains(@class, \"net_callBack_input\")]"
+    },
+    "submit_path": {
+      "mode": "class_name",
+      "value": "net_callBack_btn"
+    },
+    "sleep_time": 2
+  },
+  {
+    "rate": 3,
+    "url": "https://adm.youyucode.com/appointment.html?source=n1",
+    "phone_path": {
+      "value": "//*[@id=\"main-container\"]/div/form/div[1]/div[5]/div/div/input"
+    },
+    "submit_path": {
+      "value": "//*[@id=\"main-container\"]/div/form/div[1]/div[5]/div/div/div/button"
+    }
+  },
+  {
+    "url": "http://xa.ui.tedu.cn/baiduuipc/zh",
+    "phone_path": {
+      "mode": "class_name",
+      "value": "lxb-cb-input"
+    },
+    "submit_path": {
+      "mode": "class_name",
+      "value": "lxb-cb-input-btn"
+    }
+  },
+  {
+    "url": "http://xw7c8v4rx7ajxxvj.mikecrm.com/kiMGSiQ",
+    "username_path": {
+      "value": "//*[@id=\"201741259\"]/div[2]/div/div[1]/input"
+    },
+    "message_path": {
+      "value": "//*[@id=\"201742454\"]/div[2]/div/div/input",
+      "msg": 10
+    },
+    "phone_path": {
+      "value": "//*[@id=\"201741261\"]/div[2]/div/div/div/input"
+    },
+    "submit_path": {
+      "mode": "class_name",
+      "value": "fb_submitBtn"
+    }
+  },
+  {
+    "rate": 3,
+    "url": "https://passport.58.com/reg/",
+    "phone_path": {
+      "mode": "id",
+      "value": "mask_body_item_phonenum"
+    },
+    "submit_path": {
+      "mode": "id",
+      "value": "mask_body_item_getcode"
+    }
+  },
+  {
+    "rate": 3,
+    "url": "https://sso.kuaidi100.com/sso/authorize.do",
+    "preset": {
+      "mode": "class_name",
+      "value": "bd"
+    },
+    "phone_path": {
+      "mode": "id",
+      "value": "mobile"
+    },
+    "submit_path": {
+      "mode": "id",
+      "value": "send"
+    }
   }
 ]
