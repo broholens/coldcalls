@@ -21,8 +21,8 @@ class ColdCall:
 
     def __init__(self, phone_number):
         self.driver = fun.make_driver(load_img=True)
-        self.driver.set_page_load_timeout(20)
-        self.driver.set_script_timeout(20)
+        self.driver.set_page_load_timeout(30)
+        self.driver.set_script_timeout(30)
         self.phone_number = phone_number
         self.name = Faker('zh_CN').name()
 

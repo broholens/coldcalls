@@ -356,28 +356,19 @@
     }
   },
   {
-    "url": "http://www.xiaomawang.net/",
-    "iframe": "iframe_company_mini",
+    "url": "http://www9.53kf.com/webCompany.php?arg=10135712&style=4",
+    "username_path": {
+      "mode": "id",
+      "value": "ly_name"
+    },
     "phone_path": {
-      "value": "//input[contains(@class, \"net_callBack_input\")]"
+      "mode": "id",
+      "value": "ly_mobile"
     },
     "submit_path": {
-      "mode": "class_name",
-      "value": "net_callBack_btn"
-    },
-    "sleep_time": 2
-  },
-  {
-    "url": "http://www.xiaomawang.net/",
-    "iframe": "iframe_company_mini",
-    "phone_path": {
-      "value": "//input[contains(@class, \"net_callBack_input\")]"
-    },
-    "submit_path": {
-      "mode": "class_name",
-      "value": "net_callBack_btn"
-    },
-    "sleep_time": 2
+      "mode": "id",
+      "value": "submit_lword"
+    }
   },
   {
     "rate": 3,
