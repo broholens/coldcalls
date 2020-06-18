@@ -344,6 +344,18 @@
     }
   },
   {
+    "rate": 3,
+    "url": "https://sso.kuaidi100.com/sso/reg.jsp",
+    "phone_path": {
+      "mode": "id",
+      "value": "name"
+    },
+    "submit_path": {
+      "mode": "id",
+      "value": "send"
+    }
+  },
+  {
     "url": "http://www.xiaomawang.net/",
     "iframe": "iframe_company_mini",
     "phone_path": {
@@ -431,6 +443,67 @@
     "submit_path": {
       "mode": "id",
       "value": "send"
+    }
+  },
+  {
+    "rate": 3,
+    "url": "https://class.hujiang.com/",
+    "phone_path": {
+      "mode": "name",
+      "value": "tel"
+    },
+    "submit_path": {
+      "mode": "class_name",
+      "value": "btn-get-code"
+    }
+  },
+  {
+    "rate": 3,
+    "url": "http://v.huatu.com/newUser/reg.php",
+    "phone_path": {
+      "mode": "id",
+      "value": "phoneNumber"
+    },
+    "submit_path": {
+      "value": "//input[contains(@class, \"jq_sendcode\")]"
+    }
+  },
+  {
+    "rate": 3,
+    "url": "https://www.vipjr.com/",
+    "preset": {
+      "value": "//div[contains(@class, \"handle_register\")]"
+    },
+    "phone_path": {
+      "mode": "name",
+      "value": "nation_phone"
+    },
+    "submit_path": {
+      "mode": "class_name",
+      "value": "v-jr-btn"
+    }
+  },
+  {
+    "rate": 3,
+    "url": "http://www.qianlima.com/new/keywordzhuolu_invite.jsp",
+    "phone_path": {
+      "mode": "class_name",
+      "value": "phone"
+    },
+    "submit_path": {
+      "value": "//p[contains(@class, \"yzm\")]"
+    }
+  },
+  {
+    "rate": 3,
+    "url": "https://hi.codemao.cn/v2",
+    "phone_path": {
+      "mode": "class_name",
+      "value": "index__input___1LXgD"
+    },
+    "submit_path": {
+      "mode": "class_name",
+      "value": "index__red_button___2BvRL"
     }
   }
 ]
