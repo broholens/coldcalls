@@ -117,10 +117,16 @@ python cold_call.py
 33. [华图](http://v.huatu.com/newUser/reg.php)
 34. [vipjr](https://www.vipjr.com/)
 35. [千里马](http://www.qianlima.com/new/keywordzhuolu_invite.jsp)
+37. [豆瓣](https://accounts.douban.com/passport/login?source=book)
+38. [潇湘书院](https://www.xxsy.net/Reg)
+39. [智能电视](https://www.znds.com/member.php?mod=zndscomregister)
+40. [美女时钟](http://reg.timemm.com/user/register)
 <!--
 [离线宝电话回拨--验证码](http://dwz.cn/1epV16)
 [知网--验证码](http://my.cnki.net/Register/CommonRegister.aspx)
 [建设--验证码](http://member.jianshe99.com/member/register.shtm)
 [乐乐课堂--验证码](http://www.leleketang.com/login/register.php)
 [无忧考网--验证码](https://user.51test.net/user/reg.html)
+[短文学--验证码](https://www.duanwenxue.com/member/reg_new.php)
+[百合--验证码](https://my.baihe.com/retrievepwd)
 -->

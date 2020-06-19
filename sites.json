@@ -496,5 +496,67 @@
       "mode": "class_name",
       "value": "index__red_button___2BvRL"
     }
+  },
+  {
+    "rate": 3,
+    "url": "https://accounts.douban.com/passport/login?source=book",
+    "phone_path": {
+      "mode": "name",
+      "value": "phone"
+    },
+    "submit_path": {
+      "value": "//div[@class=\"account-form-field-code\"]/a"
+    }
+  },
+  {
+    "rate": 3,
+    "url": "https://www.xxsy.net/Reg",
+    "phone_path": {
+      "mode": "name",
+      "value": "mobileNumber"
+    },
+    "password_path": {
+      "mode": "name",
+      "value": "userPwd"
+    },
+    "password_confirm_path": {
+      "mode": "name",
+      "value": "confirmUserPwd"
+    },
+    "submit_path": {
+      "mode": "class_name",
+      "value": "accounbtn"
+    }
+  },
+  {
+    "rate": 3,
+    "url": "http://reg.timemm.com/user/register",
+    "phone_path": {
+      "mode": "id",
+      "value": "username"
+    },
+    "password_path": {
+      "mode": "id",
+      "value": "pwd"
+    },
+    "submit_path": {
+      "value": "//button[contains(@class, \"get-code\")]"
+    }
+  },
+  {
+    "rate": 3,
+    "url": "https://www.znds.com/member.php?mod=zndscomregister",
+    "preset": {
+      "type": "script",
+      "value": "$('agreebbrule').checked = true;hideMenu('fwin_dialog', 'dialog');"
+    },
+    "phone_path": {
+      "mode": "id",
+      "value": "tel"
+    },
+    "postset": {
+      "type": "script",
+      "value": "dsendsms()"
+    }
   }
 ]
