@@ -26,6 +26,9 @@ class ColdCall:
         self.phone_number = phone_number
         self.name = Faker('zh_CN').name()
 
+    def __del__(self):
+        self.driver.quit()
+
     def tease_site(self, site):
         """根据配置点击网站进行注册"""
         self.driver.get(site['url'])
