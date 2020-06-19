@@ -1,1 +1,4 @@
-pyfunctions
+pyfunctions~=2020.6.17.13.47.45
+loguru~=0.5.1
+Faker~=4.1.0
+selenium~=3.141.0

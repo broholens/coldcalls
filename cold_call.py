@@ -1,10 +1,14 @@
-import time
 import random
+import time
 
-from pyfunctions import fun
+from loguru import logger
 from faker import Faker
-from selenium.webdriver.common.by import By
+from pyfunctions import fun
 from selenium.common.exceptions import TimeoutException
+from selenium.webdriver.common.by import By
+
+
+logger.add('call.log', rotation='20 MB')
 
 
 class ColdCall:
@@ -25,9 +29,6 @@ class ColdCall:
         self.driver.set_script_timeout(30)
         self.phone_number = phone_number
         self.name = Faker('zh_CN').name()
-
-    def __del__(self):
-        self.driver.quit()
 
     def tease_site(self, site):
         """根据配置点击网站进行注册"""
@@ -106,18 +107,22 @@ class ColdCall:
             self._find_element(key).send_keys(value)
 
     def run(self):
-        for site in self._load_sites():
+        # self.tease_site(fun.load_json_file('sites.json')[-3])
+        # sites = fun.load_json_file("sites.json")[-2:]
+        sites = self._load_sites()
+        for site in sites:
             try:
                 self.tease_site(site)
+                logger.info(f"[SUCCESS] {site['url']}")
             except TimeoutException:
                 try:
                     self.driver.refresh()
                 except:
-                    print("ERROR", site['url'])
-            except Exception as e:
-                print(e)
-                print("ERROR", site['url'])
-        # self.tease_site(fun.load_json_file('sites.json')[-3])
+                    logger.info(f"[ERROR] {site['url']}")
+            except:
+                logger.info(f"[ERROR] {site['url']}")
+
+        self.driver.quit()
 
 
 if __name__ == '__main__':
