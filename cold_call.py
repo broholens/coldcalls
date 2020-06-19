@@ -44,9 +44,13 @@ class ColdCall:
         # 填写表单
         self._send_optional_value(username, self.name)
         self.send_phone_number(phone_path)
+        fun.random_sleep(3)
         self._send_optional_value(password, self.password)
+        fun.random_sleep(3)
         self._send_optional_value(password_confirm, self.password)
+        fun.random_sleep(3)
         self._send_optional_value(message, message_content)
+        fun.random_sleep(3)
         submit_path and self._find_element(submit_path).click()
         postset and self._parse_type(postset)
         fun.random_sleep(2)
@@ -56,7 +60,7 @@ class ColdCall:
             alert.accept()
         except:
             pass
-        fun.random_sleep(8)
+        fun.random_sleep(60)
 
     def send_phone_number(self, phone_path):
         """逐个字符输入手机号"""
@@ -110,7 +114,7 @@ class ColdCall:
             except Exception as e:
                 print(e)
                 print("ERROR", site['url'])
-        # self.tease_site(self.sites[-1])
+        # self.tease_site(fun.load_json_file('sites.json')[-3])
 
 
 if __name__ == '__main__':
