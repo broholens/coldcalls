@@ -107,22 +107,22 @@ class ColdCall:
             self._find_element(key).send_keys(value)
 
     def run(self):
-        # self.tease_site(fun.load_json_file('sites.json')[-3])
+        self.tease_site(fun.load_json_file('sites.json')[-1])
         # sites = fun.load_json_file("sites.json")[-2:]
-        sites = self._load_sites()
-        for site in sites:
-            try:
-                self.tease_site(site)
-                logger.info(f"[SUCCESS] {site['url']}")
-            except TimeoutException:
-                try:
-                    self.driver.refresh()
-                except:
-                    logger.info(f"[ERROR] {site['url']}")
-            except:
-                logger.info(f"[ERROR] {site['url']}")
-
-        self.driver.quit()
+        # sites = self._load_sites()
+        # for site in sites:
+        #     try:
+        #         self.tease_site(site)
+        #         logger.info(f"[SUCCESS] {site['url']}")
+        #     except TimeoutException:
+        #         try:
+        #             self.driver.refresh()
+        #         except:
+        #             logger.info(f"[ERROR] {site['url']}")
+        #     except:
+        #         logger.info(f"[ERROR] {site['url']}")
+        #
+        # self.driver.quit()
 
 
 if __name__ == '__main__':

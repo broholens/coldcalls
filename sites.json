@@ -558,5 +558,38 @@
       "type": "script",
       "value": "dsendsms()"
     }
+  },
+  {
+    "url": "https://tj.ikongjian.com/reservation/index",
+    "preset": {
+      "value": "//div[@class=\"fixeRight\"]/a[2]"
+    },
+    "username_path": {
+      "mode": "id",
+      "value": "resUserName"
+    },
+    "phone_path": {
+      "mode": "id",
+      "value": "resMobile"
+    },
+    "submit_path": {
+      "mode": "class_name",
+      "value": "aboutJs_button"
+    }
+  },
+  {
+    "url": "https://www.to8to.com/yezhu/",
+    "username_path": {
+      "mode": "id",
+      "value": "Name"
+    },
+    "phone_path": {
+      "mode": "id",
+      "value": "Tphone"
+    },
+    "submit_path": {
+      "mode": "class_name",
+      "value": "form-btn"
+    }
   }
 ]
