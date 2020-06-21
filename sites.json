@@ -591,5 +591,36 @@
       "mode": "class_name",
       "value": "form-btn"
     }
+  },
+  {
+    "url": "https://www.jia.com/zx/other/semtf/",
+    "preset": {
+      "mode": "id",
+      "value": "zaixianbaojia"
+    },
+    "username_path": {
+      "value": "//div[@class=\"rank_li\"]/input"
+    },
+    "phone_path": {
+      "value": "//div[@class=\"rank_li\"]/input[@name=\"mobile\"]"
+    },
+    "submit_path": {
+      "value": "//a[contains(@class, \"apply_submit\")]"
+    }
+  },
+  {
+    "url": "http://beijing.zhuangxiuyizu.cn/",
+    "username_path": {
+      "mode": "name",
+      "value": "data[contact]"
+    },
+    "phone_path": {
+      "mode": "name",
+      "value": "data[mobile]"
+    },
+    "submit_path": {
+      "mode": "class_name",
+      "value": "head_btn"
+    }
   }
 ]

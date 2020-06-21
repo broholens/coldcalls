@@ -2,7 +2,7 @@
 
 本项目类似于轰炸机。<br>
 逻辑如下：
-- 使用手机号在留学、在线教育类网站留下信息，则销售会主动不厌其烦地call此手机号。
+- 使用手机号在留学、在线教育、装修等网站留下信息，则销售会主动不厌其烦地call此手机号。
 - 使用手机号注册、登录网站，则会收到短信验证码。
 <br>
 
@@ -123,6 +123,8 @@ python cold_call.py
 39. [美女时钟](http://reg.timemm.com/user/register)
 40. [爱空间](https://tj.ikongjian.com/reservation/index)
 41. [to8to](https://www.to8to.com/yezhu/)
+42. [齐家](https://www.jia.com/zx/other/semtf/)
+43. [装修一族](http://beijing.zhuangxiuyizu.cn/)
 <!--
 [离线宝电话回拨--验证码](http://dwz.cn/1epV16)
 [知网--验证码](http://my.cnki.net/Register/CommonRegister.aspx)
