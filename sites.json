@@ -622,5 +622,17 @@
       "mode": "class_name",
       "value": "head_btn"
     }
+  },
+  {
+    "url": "http://www.sh-juyun.com/",
+    "username_path": {
+      "value": "//input[@class=\"g_itext\"]"
+    },
+    "phone_path": {
+      "value": "//div[contains(@class, \"item_2\")]//input[@class=\"g_itext\"]"
+    },
+    "submit_path": {
+      "value": "//div[@class=\"m\"]"
+    }
   }
 ]
