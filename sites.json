@@ -634,5 +634,20 @@
     "submit_path": {
       "value": "//div[@class=\"m\"]"
     }
+  },
+  {
+    "url": "http://bj.xtuan.com/zhuangxiu/",
+    "username_path": {
+      "mode": "id",
+      "value": "chenghu"
+    },
+    "phone_path": {
+      "mode": "id",
+      "value": "phone"
+    },
+    "submit_path": {
+      "mode": "class_name",
+      "value": "button"
+    }
   }
 ]
