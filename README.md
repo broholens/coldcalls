@@ -127,6 +127,9 @@ python cold_call.py
 43. [装修一族](http://beijing.zhuangxiuyizu.cn/)
 44. [居云装潢](http://www.sh-juyun.com/) 
 45. [保家](http://bj.xtuan.com/zhuangxiu/)
+46. [大鱼装修](https://www.idayu.cn/)
+47. [东易日盛](https://shenzhen.dyrs.com.cn/)
+
 <!--
 [离线宝电话回拨--验证码](http://dwz.cn/1epV16)
 [知网--验证码](http://my.cnki.net/Register/CommonRegister.aspx)

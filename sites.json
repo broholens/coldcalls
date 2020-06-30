@@ -668,5 +668,21 @@
     "submit_path": {
       "value": "//button[@type=\"submit\"]"
     }
+  },
+  {
+    "url": "https://www.idayu.cn/",
+    "iframe": "iframe_company_mini",
+    "username_path": {
+      "mode": "id",
+      "value": "ly_name"
+    },
+    "phone_path": {
+      "mode": "id",
+      "value": "ly_mobile"
+    },
+    "submit_path": {
+      "mode": "id",
+      "value": "submit_lword"
+    }
   }
 ]
