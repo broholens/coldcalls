@@ -649,5 +649,24 @@
       "mode": "class_name",
       "value": "button"
     }
+  },
+  {
+    "url": "https://shenzhen.dyrs.com.cn/",
+    "username_path": {
+      "mode": "name",
+      "value": "name"
+    },
+    "phone_path": {
+      "mode": "name",
+      "value": "phone"
+    },
+    "message_path": {
+      "mode": "name",
+      "value": "acreage",
+      "msg": "120"
+    },
+    "submit_path": {
+      "value": "//button[@type=\"submit\"]"
+    }
   }
 ]
