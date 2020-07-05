@@ -684,5 +684,31 @@
       "mode": "id",
       "value": "submit_lword"
     }
+  },
+  {
+    "url": "http://baiduloushi.com/plus/view.php?aid=653",
+    "username_path": {
+      "mode": "id",
+      "value": "exampleInputName"
+    },
+    "phone_path": {
+      "mode": "id",
+      "value": "exampleInputPhone"
+    },
+    "submit_path": {
+      "mode": "id",
+      "value": "formsubmit"
+    }
+  },
+  {
+    "url": "http://www.sxxxpx.cn/mba/wps/p/002QG/",
+    "phone_path": {
+      "mode": "name",
+      "value": "msg_userphone"
+    },
+    "postset": {
+      "type": "script",
+      "value": "$.msgSubmit('messageForm1')"
+    }
   }
 ]

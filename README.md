@@ -1,5 +1,7 @@
 # Coldcalls & Messages
 
+## 仅供学习交流，请勿用作其他用途。
+
 本项目类似于轰炸机。<br>
 逻辑如下：
 - 使用手机号在留学、在线教育、装修等网站留下信息，则销售会主动不厌其烦地call此手机号。
@@ -11,7 +13,7 @@
 ```bash
 git clone https://github.com/broholens/coldcalls.git
 cd coldcalls
-pip install requiremenrts.txt
+pip install requirements.txt
 python cold_call.py
 ```
 - **添加自己解析的网站**<br>
@@ -129,6 +131,8 @@ python cold_call.py
 45. [保家](http://bj.xtuan.com/zhuangxiu/)
 46. [大鱼装修](https://www.idayu.cn/)
 47. [东易日盛](https://shenzhen.dyrs.com.cn/)
+48. [百度楼市](http://baiduloushi.com/plus/view.php?aid=653)
+49. [升学](http://www.sxxxpx.cn/mba/wps/p/002QG/)
 
 <!--
 [离线宝电话回拨--验证码](http://dwz.cn/1epV16)
