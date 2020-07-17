@@ -23,15 +23,15 @@ class ColdCall:
         'link_text': By.LINK_TEXT
     }
 
-    def __init__(self, phone_number):
+    def __init__(self, phone_number, name=''):
         self.driver = fun.make_driver(load_img=True)
         self.driver.set_page_load_timeout(30)
         self.driver.set_script_timeout(30)
         self.phone_number = phone_number
-        self.name = Faker('zh_CN').name()
+        self.name = name or Faker('zh_CN').name()
 
     def tease_site(self, site):
-        """根据配置点击网站进行注册"""
+        """根据配置点击网站进行注册/登录"""
         self.driver.get(site['url'])
         # 获取site字段
         username, password = site.get('username_path'), site.get('password_path')
@@ -84,12 +84,24 @@ class ColdCall:
         time.sleep(0.2)
 
     @staticmethod
-    def _load_sites():
+    def _load_sites(verify_code_only=False):
+        """
+        加载配置文件，通过rate字段区分短信/电话
+        :param verify_code_only: 只返回验证码
+        :return: 需要请求的网站
+        """
         sites = fun.load_json_file("sites.json")
-        rate_sites = list(filter(lambda x: "rate" in x, sites))
+        rate_sites = [(site, int(site['rate'])) for site in sites if 'rate' in site]
+        if verify_code_only:
+            sites = []
+            for site in rate_sites:
+                sites.extend([site[0]] * site[1])
+            random.shuffle(sites)
+            return sites
+
         for site in rate_sites:
-            sites.extend((int(site['rate']) - 1) * [site])
-        random.shuffle(sites)
+            sites.extend([site[0]] * (site[1]-1))
+            random.shuffle(sites)
         return sites
 
     def _parse_mode(self, item):
@@ -106,25 +118,25 @@ class ColdCall:
         if key:
             self._find_element(key).send_keys(value)
 
-    def run(self):
-        self.tease_site(fun.load_json_file('sites.json')[-1])
+    def run(self, verify_code_only=False):
+        # self.tease_site(fun.load_json_file('sites.json')[-1])
         # sites = fun.load_json_file("sites.json")[-2:]
-        # sites = self._load_sites()
-        # for site in sites:
-        #     try:
-        #         self.tease_site(site)
-        #         logger.info(f"[SUCCESS] {site['url']}")
-        #     except TimeoutException:
-        #         try:
-        #             self.driver.refresh()
-        #         except:
-        #             logger.info(f"[ERROR] {site['url']}")
-        #     except:
-        #         logger.info(f"[ERROR] {site['url']}")
-        #
-        # self.driver.quit()
+        sites = self._load_sites(verify_code_only)
+        for site in sites:
+            try:
+                self.tease_site(site)
+                logger.info(f"[SUCCESS] {site['url']}")
+            except TimeoutException:
+                try:
+                    self.driver.refresh()
+                except:
+                    logger.info(f"[ERROR] {site['url']}")
+            except:
+                logger.info(f"[ERROR] {site['url']}")
+
+        self.driver.quit()
 
 
 if __name__ == '__main__':
-    cc = ColdCall("13319285357")
+    cc = ColdCall("")
     cc.run()
