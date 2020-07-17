@@ -710,5 +710,104 @@
       "type": "script",
       "value": "$.msgSubmit('messageForm1')"
     }
+  },
+  {
+    "url": "http://wap.gbhui.com/captcha_login.html",
+    "rate": 3,
+    "phone_path": {
+      "mode": "id",
+      "value": "loginName"
+    },
+    "submit_path": {
+      "mode": "id",
+      "value": "btnSendCode"
+    }
+  },
+  {
+    "url": "https://2car.haval.com.cn/quicklogin",
+    "rate": 3,
+    "phone_path": {
+      "mode": "id",
+      "value": "phone"
+    },
+    "submit_path": {
+      "value": "//a[contains(@class, \"u-getcode\")]"
+    }
+  },
+  {
+    "url": "https://account.xiaomi.com/pass/serviceLogin",
+    "rate": 3,
+    "phone_path": {
+      "mode": "id",
+      "value": "username"
+    },
+    "submit_path": {
+      "mode": "id",
+      "value": "getSMSCode"
+    }
+  },
+  {
+    "url": "https://wse.com.cn/zh/register/",
+    "rate": 3,
+    "phone_path": {
+      "mode": "id",
+      "value": "mobileNumber"
+    },
+    "submit_path": {
+      "mode": "id",
+      "value": "send-verification-code-span"
+    }
+  },
+  {
+    "url": "https://user.mihoyo.com/#/register/mobile?cb_route=%2Faccount%2Fhome",
+    "rate": 3,
+    "phone_path": {
+      "mode": "xpath",
+      "value": "//div[@class=\"input-container\"]/input"
+    },
+    "submit_path": {
+      "mode": "class_name",
+      "value": "input-inner-btn"
+    }
+  },
+  {
+    "url": "http://www.zgtzmls.com/Home/User/reg.html",
+    "rate": 3,
+    "username_path": {
+      "mode": "id",
+      "value": "username"
+    },
+    "phone_path": {
+      "mode": "id",
+      "value": "mobile"
+    },
+    "submit_path": {
+      "mode": "id",
+      "value": "sendSms"
+    }
+  },
+  {
+    "url": "https://www.gsbankmall.com/index.php/Wap/index/userhome.html",
+    "rate": 3,
+    "phone_path": {
+      "mode": "id",
+      "value": "tel"
+    },
+    "submit_path": {
+      "mode": "id",
+      "value": "btn"
+    }
+  },
+  {
+    "url": "https://www.story-mark.com/login/code",
+    "rate": 3,
+    "phone_path": {
+      "mode": "name",
+      "value": "userPhone"
+    },
+    "submit_path": {
+      "mode": "id",
+      "value": "loginVcodeBtn"
+    }
   }
 ]
