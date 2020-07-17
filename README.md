@@ -133,6 +133,14 @@ python cold_call.py
 47. [东易日盛](https://shenzhen.dyrs.com.cn/)
 48. [百度楼市](http://baiduloushi.com/plus/view.php?aid=653)
 49. [升学](http://www.sxxxpx.cn/mba/wps/p/002QG/)
+50. [百广荟](http://wap.gbhui.com/captcha_login.html)
+51. [haval](https://2car.haval.com.cn/quicklogin)
+52. [小米](https://account.xiaomi.com/pass/serviceLogin)
+53. [华尔街英语](https://wse.com.cn/zh/register/)
+54. [米哈游](https://user.mihoyo.com/#/register/mobile?cb_route=%2Faccount%2Fhome)
+55. [薯宝](http://www.zgtzmls.com/Home/User/reg.html)
+56. [gsbankmall](https://www.gsbankmall.com/index.php/Wap/index/userhome.html)
+57. [story-mark](https://www.story-mark.com/login/code)
 
 <!--
 [离线宝电话回拨--验证码](http://dwz.cn/1epV16)
@@ -142,4 +150,9 @@ python cold_call.py
 [无忧考网--验证码](https://user.51test.net/user/reg.html)
 [短文学--验证码](https://www.duanwenxue.com/member/reg_new.php)
 [百合--验证码](https://my.baihe.com/retrievepwd)
+https://cn.accaglobal.com/site/tellogin.html
+https://vip.meishubao.com/student/login/
+https://www.zhihe.com/main/article/1847
+https://www.guerlain.com.cn/
+https://m.zhuzhai.com/user/smslogin
 -->
