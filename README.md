@@ -141,7 +141,12 @@ python cold_call.py
 55. [薯宝](http://www.zgtzmls.com/Home/User/reg.html)
 56. [gsbankmall](https://www.gsbankmall.com/index.php/Wap/index/userhome.html)
 57. [story-mark](https://www.story-mark.com/login/code)
-
+58. [前程无忧](https://login.51job.com/login.php?isjump=0&loginway=1&lang=c&from_domain=i&url=)
+59. [楼事](http://passport.360eol.com/pc/passwordOrCodeLogin?from=http%3A%2F%2Fnanjing.360loushi.com%2F&appId=AOqn8WGeXHGZN23dF)
+60. [infoq](https://account.geekbang.org/infoq/signup?redirect=https%3A%2F%2Fwww.infoq.cn%2Farticle%2FLZE%2aob52bASspjYu4c6Z)
+61. [tcl](http://user.tcl.com/proxy/login)
+62. [拼多多商家](https://ims.pinduoduo.com/plus/)
+63. [简书重置密码](https://www.jianshu.com/users/password/mobile_reset)
 <!--
 [离线宝电话回拨--验证码](http://dwz.cn/1epV16)
 [知网--验证码](http://my.cnki.net/Register/CommonRegister.aspx)
@@ -155,4 +160,7 @@ https://vip.meishubao.com/student/login/
 https://www.zhihe.com/main/article/1847
 https://www.guerlain.com.cn/
 https://m.zhuzhai.com/user/smslogin
+https://www.changan.com.cn/phone-login.shtml
+http://www.huishengyixue.com/showValidateCodeLogin
+[抖音开放平台](https://open.douyin.com/platform)
 -->
