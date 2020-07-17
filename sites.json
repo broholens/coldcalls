@@ -809,5 +809,82 @@
       "mode": "id",
       "value": "loginVcodeBtn"
     }
+  },
+  {
+    "url": "https://login.51job.com/login.php?isjump=0&loginway=1&lang=c&from_domain=i&url=",
+    "rate": 3,
+    "phone_path": {
+      "mode": "id",
+      "value": "loginname"
+    },
+    "postset": {
+      "type": "script",
+      "value": "sendPhoneCode()"
+    }
+  },
+  {
+    "url": "http://passport.360eol.com/pc/passwordOrCodeLogin?from=http%3A%2F%2Fnanjing.360loushi.com%2F&appId=AOqn8WGeXHGZN23dF",
+    "rate": 3,
+    "preset": {
+      "type": "click",
+      "mode": "xpath",
+      "value": "//ul[@class=\"loginNav\"]/li[last()]"
+    },
+    "phone_path": {
+      "mode": "id",
+      "value": "phoneOrEmailOne"
+    },
+    "submit_path": {
+      "mode": "class_name",
+      "value": "code"
+    }
+  },
+  {
+    "url": "https://account.geekbang.org/infoq/signup?redirect=https%3A%2F%2Fwww.infoq.cn%2Farticle%2FLZE%2aob52bASspjYu4c6Z",
+    "rate": 3,
+    "phone_path": {
+      "mode": "name",
+      "value": "cellphone"
+    },
+    "submit_path": {
+      "mode": "class_name",
+      "value": "code-btn"
+    }
+  },
+  {
+    "url": "http://user.tcl.com/proxy/login",
+    "rate": 3,
+    "phone_path": {
+      "mode": "xpath",
+      "value": "//input[contains(@class, \"J-phone\")]"
+    },
+    "submit_path": {
+      "mode": "xpath",
+      "value": "//span[contains(@class, \"J-GetPhoneCode\")]"
+    }
+  },
+  {
+    "url": "https://ims.pinduoduo.com/plus/",
+    "rate": 3,
+    "phone_path": {
+      "mode": "xpath",
+      "value": "//input[contains(@class, \"login-phone\")]"
+    },
+    "submit_path": {
+      "mode": "xpath",
+      "value": "//button[contains(@class, \"send-code-button\")]"
+    }
+  },
+  {
+    "url": "https://www.jianshu.com/users/password/mobile_reset",
+    "rate": 3,
+    "phone_path": {
+      "mode": "id",
+      "value": "mobile_number"
+    },
+    "submit_path": {
+      "mode": "xpath",
+      "value": "//a[contains(@class, \"js-send-code-button\")]"
+    }
   }
 ]
