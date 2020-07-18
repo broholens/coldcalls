@@ -147,6 +147,7 @@ python cold_call.py
 61. [tcl](http://user.tcl.com/proxy/login)
 62. [拼多多商家](https://ims.pinduoduo.com/plus/)
 63. [简书重置密码](https://www.jianshu.com/users/password/mobile_reset)
+65. [无忧精英](https://login.51job.com/login.php?isjump=0&loginway=1&lang=c&from_domain=i&url=http%3A%2F%2Fwww.51job.com%2F)
 <!--
 [离线宝电话回拨--验证码](http://dwz.cn/1epV16)
 [知网--验证码](http://my.cnki.net/Register/CommonRegister.aspx)

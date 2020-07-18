@@ -886,5 +886,17 @@
       "mode": "xpath",
       "value": "//a[contains(@class, \"js-send-code-button\")]"
     }
+  },
+  {
+    "url": "https://www.51jingying.com/common/login.php?loginas=manager&loginway=1&returnUrl=https%3A%2F%2Fauction.51jingying.com%2F",
+    "rate": 3,
+    "phone_path": {
+      "mode": "xpath",
+      "value": "//input[contains(@class, \"common_login_username_input\")]"
+    },
+    "submit_path": {
+      "mode": "class_name",
+      "value": "common_login_send_phonecode"
+    }
   }
 ]
